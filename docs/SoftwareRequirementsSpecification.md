@@ -117,80 +117,115 @@ Testing:
 
 ## 3. Specific Requirements
 
-### 3.1 Functionality
-This section will explain the different use cases, you could see in the Use Case Diagram, and their functionality.  
-Until December we plan to implement:
-- 3.1.1 Posting a session
-- 3.1.2 Getting an overview
-- 3.1.3 Creating an account
-- 3.1.4 Logging in
-- 3.1.5 Logging out
+ 3.1 Functionality                                                                                                                                       
+                                                                                                                                                          
+  This section will explain the different use cases, you could see in the Use Case Diagram, and their functionality.                                      
+                                                                                                                                                          
+  Until December we plan to implement:                                                                                                                    
+  - 3.1.1 Searching for a product                                                                                                                         
+  - 3.1.2 Viewing halal status of a product                                                                                                               
+  - 3.1.3 Uploading a product packaging photo               
+  - 3.1.4 Viewing ingredient analysis                                                                                                                     
+  - 3.1.5 Viewing alternative halal products                                                                                                              
+                                                                                                                                                          
+  Until June, we want to implement:                                                                                                                       
+  - 3.1.6 Filtering search results by dietary preference                                                                                                  
+  - 3.1.7 Adding a product to the shopping list                                                                                                           
+  - 3.1.8 Viewing the shopping list            
+  - 3.1.9 Removing a product from the shopping list                                                                                                       
+  - 3.1.10 Sharing a product halal status                   
+  - 3.1.11 Viewing recently searched products                                                                                                             
+  - 3.1.12 Reporting incorrect product information                                                                                                        
+  - 3.1.13 Viewing halal certification details                                                                                                            
+                                                                                                                                                          
+  3.1.1 Searching for a product                                                                                                                           
+                                                                                                                                                          
+  This feature is the essential one of our project. The user gets the possibility to search for a packaged food product by entering its name or scanning  
+  its barcode. The system then queries multiple data sources and returns a list of matching products for the user to select from.                         
+                                                                                                                                                          
+  ./use_cases/UC01_Search_Product.md                                                                                                                      
+  
+  3.1.2 Viewing halal status of a product                                                                                                                 
+                                                            
+  This feature provides the core value of the application. Once a product is selected, the system evaluates its ingredients, certifications, manufacturing
+   details, and country of origin to deliver a halal verdict — Halal, Haram, or Mashbooh — along with a plain-language explanation.
+                                                                                                                                                          
+  ./use_cases/UC02_View_Halal_Status.md                     
 
-Until June, we want to implement:
-- 3.1.6 Joining a session
-- 3.1.7 Keeping track of your sessions
-- 3.1.8 Leaving a session
-- 3.1.9 Finding a session
-- 3.1.10 Getting in touch
+  3.1.3 Uploading a product packaging photo                                                                                                               
+  
+  When a product cannot be found in the database, the user gets the possibility to upload a photo of the product packaging. The system then performs OCR  
+  and image analysis to extract the product name, barcode, ingredients, and certification marks, and proceeds with the halal assessment.
+                                                                                                                                                          
+  ./use_cases/UC03_Upload_Photo.md                          
 
-#### 3.1.1 Posting a session
-This feature is the essential one of our project. The user gets the possibility to post a session. Therefore, they have to select a game and also set the time when they want to play.For offline games, they have to set a location, too. For online games the location can be a server for example or simply be tagged as 'online'.
+  3.1.4 Viewing ingredient analysis
 
-[Posting a session](./use_cases/UC1_Post_Session.md)
+  This feature gives the user a detailed, ingredient-by-ingredient breakdown of a product. Each ingredient is individually classified as Halal, Haram, or 
+  Mashbooh with colour-coded indicators, allowing the user to understand exactly which components influence the overall verdict.
+                                                                                                                                                          
+  ./use_cases/UC04_Ingredient_Analysis.md                   
 
-#### 3.1.2 Getting an overview
-This feature provides a basic overview over all current sessions. All posted sessions are added here. From this overview you can select a session and from there join this session.
+  3.1.5 Viewing alternative halal products                                                                                                                
+   
+  When a product is found to be Haram or Mashbooh, the app provides the user with a list of certified halal alternatives in the same product category.    
+  This helps users quickly find a suitable replacement without having to start a new search.
+                                                                                                                                                          
+  ./use_cases/UC05_View_Alternatives.md                     
 
-[Session overview](./use_cases/UC3_Session_Overview.md)
+  3.1.6 Filtering search results by dietary preference                                                                                                    
+   
+  Based on the product search results, this feature enables the user to narrow down results by additional dietary requirements such as vegan, gluten-free,
+   or nut-free, alongside halal compliance. This way, users with multiple dietary needs can find suitable products more efficiently.
+                                                                                                                                                          
+  ./use_cases/UC09_Filter_Results.md                        
 
-#### 3.1.3 Creating an account
-To identify all useres we need an account system. This account system enables us to build important functions such as joining a session, leaving a session or a personalized overview over all sessions (Keeping track of your sessions).
+  3.1.7 Adding a product to the shopping list                                                                                                             
+   
+  The user gets the possibility to save any product to a personal shopping list for future reference. This is useful when planning purchases in advance or
+   when the user wants to keep a record of approved halal products they intend to buy regularly.
+                                                                                                                                                          
+  ./use_cases/UC06_Add_To_List.md                                                                                                                         
+   
+  3.1.8 Viewing the shopping list                                                                                                                         
+                                                            
+  The app provides the user with a separate page view where they get an overview of all products they have saved to their shopping list, including the    
+  name, brand, and halal verdict of each item.
+                                                                                                                                                          
+  ./use_cases/UC07_View_List.md                             
 
-[Create an account](./use_cases/UC4_Create_Account.md)
+  3.1.9 Removing a product from the shopping list
 
-#### 3.1.4 Logging in
-The app will provide the possibility to register and log in. This will also make the usability easier when a user wants to manage his sessions, post or join a session because they don't have to enter their mail address every time.
+  The user also gets the possibility to remove a product they no longer need from their shopping list, keeping it relevant and up to date.                
+   
+  ./use_cases/UC08_Remove_From_List.md                                                                                                                    
+                                                            
+  3.1.10 Sharing a product halal status
 
-[Login](./use_cases/UC5_Login.md)
+  There must be the possibility for users to share their findings with family or friends. The user who checks a product gets the possibility to share its 
+  halal status via a link through any messaging app, email, or clipboard. This is particularly useful in group shopping scenarios.
+                                                                                                                                                          
+  ./use_cases/UC10_Share_Status.md                          
 
-#### 3.1.5 Logging out
-In case you share your phone, have multiple accounts or just want to be cautius about your privacy you should be able to manually log out.
+  3.1.11 Viewing recently searched products
 
-[Logout](./use_cases/UC6_Logout.md)
+  The app provides the user with quick access to products they have previously looked up, without having to re-enter a search query. Recent searches are  
+  shown automatically when the user opens the search field or navigates to the history section.
+                                                                                                                                                          
+  ./use_cases/UC11_Recent_Searches.md                       
 
-#### 3.1.6 Joining a session
-There is also the possibility to join an existing game session. Therefore, the user can select a specific session.
+  3.1.12 Reporting incorrect product information
 
-[Join a session](./use_cases/UC2_Join_Session.md)
+  After viewing a product, the app provides the user with the possibility to flag inaccurate verdict or ingredient data by submitting a correction report.
+   This is helpful because we want a platform with reliable and community-validated information.
+                                                                                                                                                          
+  ./use_cases/UC12_Report_Information.md                    
 
-#### 3.1.7 Keeping track of your sessions
-The app provides the user with a seperate page view where they get an overview of all sessions they posted or joined. When the user clicks on a session, he can also see who joined his posted sessions.
-
-[Keeping track of your sessions](./use_cases/UC7_Keeping_Track.md)
-
-#### 3.1.8 Leaving a session
-The user gets also the possibility to delete a session he posted or to leave a session he joined.
-
-[Leaving a session](./use_cases/UC8_Leave_Session.md)
-
-#### 3.1.9 Finding a session
-Based on the overview over all sessions this features enables the user to find sessions by specific parameters. Therefore, the user can find a session by tags or other parameters like date. Later on, finding a session will be provided by geolocalization that the users can search for a session in a specific area.
-
-[Finding a session](./use_cases/UC9_Find_Session.md)
-
-#### 3.1.10 Getting in touch
-There must be the possibility that two people who want to play together can communicate with each other. The player who joins the session gets the possibility to contact the owner and vice versa. Later on, when we will have implemented profiles, then they will form another way to communicate with each other.
-
-[Getting in Touch](./use_cases/UC10_Getting_In_Touch.md)
-
-#### 3.1.11 Presenting yourself and checking out others
-With the possibility to log in there comes another functionality, the profile. Every user will have their own profile where they can write some informations about themselves. Because of the privacy policy in Europe, the user has the possibility to only write the information they want other people to see. Using the profile, users can also check out other players and learn e.g. their favorite games.
-
-#### 3.1.12 Reporting users and managing friends
-After a session, the app provides the users with the possibility to report the other participants. This is helpful because we want a community with fair players. Additionally, when they found an interesting person they can also add them to their friend list which also has a seperate page view.
-
-#### 3.1.13 Banning users and deleting posts
-There are also some functionalities for the admins. They will get the possibility to ban users and to delete any posts.
+  3.1.13 Viewing halal certification details                                                                                                              
+   
+  When a product carries a halal certification, the user can access the full details of the certifying organisation, including its name, country,         
+  accreditation status, certificate number, and validity dates. This allows users to independently verify the legitimacy of a certification before
+  trusting a verdict.   
 
 ### 3.2 Usability
 We plan on designing the user interface as intuitive and self-explanatory as possible to make the user feel as comfortable as possible using the app. Though an FAQ document will be available, it should not be necessary to use it.
