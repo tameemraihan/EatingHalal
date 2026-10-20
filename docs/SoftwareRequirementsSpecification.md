@@ -30,60 +30,81 @@
 ## 1. Introduction
 
 ### 1.1 Purpose
-This Software Requirements Specification (SRS) describes all specifications for the application "Common Playground". It includes an overview about this project and its vision, detailed information about the planned features and boundary conditions of the development process.
-
+This Software Requirements Specification (SRS) describes all specifications for the application "EatingHalal". It includes an overview of this project and its vision, detailed information about the planned features, and the boundary conditions of the development process.
 
 ### 1.2 Scope
-The project is going to be realized as an Android App.  
-  
-Actors of this App can be users or moderators.  
-  
-Planned Subsystems are: 
-* Notice Board:  
-The notice board is the essential part of the user interface. Game sessions should be visualized as postings including relevant information about the session. Those should be partly standardized by a form with a free text option for specifics. The data must be stored accordingly.
-* Account System:  
-Users can create accounts so sessions can be connected to a person as well as to join requests. User data must be stored alongside the posting data.
-* Friend List and User Rating:  
-Once the account system is created there will be the option to mark users as favorites. Also users or game sessions should get a rating to counter abuse.
-* Connecting People:  
-The host of a game session has to be notified when someone wants to join their game. Both must then be able to get in touch to organize the details, so messages between the host and the guest have to be enabled. This could be done via automated emails or a custom in-app system. For this an account system is needed.
-* Storing Data:  
-User data for accounts and possibly profiles has to be stored. Also the game sessions have to be stored as datasets containing the form contents and possibly contact data. The data storage will form the foundation for the visualization, account system and the search feature.
-* Finding your Game:  
-We need a tag system so everyone looking to join a game can search for the kind of games they are interested in. Possibly other aspects can be searchable, such as place or date. Tags must be stored and a search function developed. 
+EatingHalal is a web application that helps users determine whether packaged food products comply with Islamic dietary laws. Halal is defined as food that is permissible, lawful, and clean according to Islamic dietary guidelines.
+
+The application is scoped exclusively to **packaged food products** — restaurants and freshly prepared foods are out of scope.
+
+Actors of this application are:
+- **Users** — individuals seeking halal product information
+- **External APIs** — third-party data sources used for certification, ingredient, and product information
+
+Planned subsystems are:
+* **Product Lookup:**
+  Users can search for a product or upload a photo of its packaging. The system queries multiple external APIs to analyze certifications, ingredient lists, manufacturer, and country of origin, then returns an instant halal/non-halal verdict with supporting rationale.
+* **Ingredient Analysis:**
+  For each product, the system breaks down individual ingredients to identify any non-halal components and explains the reasoning behind the determination.
+* **Alternative Products:**
+  When a product is determined to be non-halal, the system suggests alternative halal-certified products within the same category.
+* **Shopping List:**
+  Users can maintain a personal saved list of halal-approved products for reference during shopping.
+* **Reporting:**
+  Users can flag and report products they believe have incorrect halal status information.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
-| Abbrevation | Explanation                            |
-| ----------- | -------------------------------------- |
-| SRS         | Software Requirements Specification    |
-| UC          | Use Case                               |
-| n/a         | not applicable                         |
-| tbd         | to be determined                       |
-| UCD         | overall Use Case Diagram               |
-| FAQ         | Frequently asked Questions             |
+| Abbreviation | Explanation                         |
+| ------------ | ----------------------------------- |
+| SRS          | Software Requirements Specification |
+| UC           | Use Case                            |
+| UCD          | Overall Use Case Diagram            |
+| n/a          | not applicable                      |
+| tbd          | to be determined                    |
+| API          | Application Programming Interface   |
+| FAQ          | Frequently Asked Questions          |
 
 ### 1.4 References
 
-| Title                                                              | Date       | Publishing organization   |
-| -------------------------------------------------------------------|:----------:| ------------------------- |
-| [Common Playground Blog](http://commonplayground.wordpress.com)    | 18.10.2018 | Common Playground Team    |
-| [GitHub](https://github.com/nilskre/CommonPlayground)              | 18.10.2018 | Common Playground Team    |
-
+| Title                                                                                          | Date       | Publishing organization |
+| -----------------------------------------------------------------------------------------------|:----------:| ----------------------- |
+| [EatingHalal Blog](https://eatinghalal2.wordpress.com)                                         | 01.10.2026 | EatingHalal Team        |
+| [GitHub](https://github.com/tameemraihan/EatingHalal)                                          | 01.10.2026 | EatingHalal Team        |
 
 ### 1.5 Overview
-The following chapter provides an overview of this project with vision and Overall Use Case Diagram. The third chapter (Requirements Specification) delivers more details about the specific requirements in terms of functionality, usability and design parameters. Finally there is a chapter with supporting information. 
+The following chapter provides an overall description of this project including its vision and Use Case Diagram. The third chapter delivers specific requirements covering functionality, usability, reliability, performance, and design constraints. The final chapter contains supporting information.
     
 ## 2. Overall Description
 
 ### 2.1 Vision
-Inspired by carpool coordination services like ‘BlaBlaCar’ or ‘Mitfahrzentrale’ we want to build an application to coordinate game sessions. We plan to create a platform for people who are looking for other people to play games with. Covering online multiplayer games, tabletop, pen and paper or regular board games we want to provide a kind of bulletin board where people can state what they want to play, when and where they want to do it and how many people they are looking for. Others can then react to the postings and virtually join the play session to be connected by us so everyone can coordinate the actual play session together on a Common Playground.
+A world where no one has to wonder if their food is halal.
 
 ### 2.2 Use Case Diagram
 
-![OUCD](./UseCaseDiagramCP.png)
+The use case diagram was created using PlantUML (diagram-as-text) and rendered via Draw.io.
 
-- Green: Planned till end of december
-- Yellow: Planned till end of june
+![Use Case Diagram](./UseCaseDiagram.png)
+
+#### Actors
+- **User** (Application User)
+- **External APIs**
+
+#### Use Cases
+
+| # | Use Case |
+|---|----------|
+| UC1 | Search for a product |
+| UC2 | Upload product packaging photo |
+| UC3 | View Halal status of a product |
+| UC4 | View Halal certification details |
+| UC5 | View ingredient analysis |
+| UC6 | View alternative Halal products |
+| UC7 | View recently searched products |
+| UC8 | Add product to shopping list |
+| UC9 | Remove product from shopping list |
+| UC10 | View shopping list |
+| UC11 | Share a product halal status |
+| UC12 | Report incorrect product information |
 
 ### 2.3 Technology Stack
 The technology we use is:
