@@ -110,23 +110,21 @@ The use case diagram was created using PlantUML (diagram-as-text) and rendered v
 The technology we use is:
 
 Backend:
--Gradle and Springboot
--H2 Database
+- Maven and Spring boot
+- MariaDB
 
 Frontend:
--Android with Java and XML
+- React
 
 IDE:
--IntelliJ and Android Studio
+-IntelliJ
 
 Project Management:
--YouTrack
--GitHub
--Microsoft Teams
+- YouTrack
 
 Deployment:
 -Travis CI
--Docker and Heroku
+-Docker
 
 Testing:
 -Cucumber
