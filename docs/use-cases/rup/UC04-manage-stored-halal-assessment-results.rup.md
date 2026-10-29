@@ -2,7 +2,7 @@
 
 # Use-Case Specification: Manage Stored Halal Assessment Results
 
-**Document identifier:** Use Case 2<br>
+**Document identifier:** Use Case 04<br>
 **Version:** 1.0<br>
 **Date:** 22 October 2026
 

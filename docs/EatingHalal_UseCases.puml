@@ -17,66 +17,54 @@ skinparam rectangle {
   BorderColor #999999
 }
 
-actor "Consumer" as Consumer
-actor "External APIs" as APIs
+actor "User" as User
+actor "Admin" as Admin
+actor "External Services" as Services
 
 rectangle "EatingHalal System" {
 
-  package "Product Discovery" {
-    usecase "UC01\nSearch for a Product" as UC01
-    usecase "UC09\nFilter Search Results\nby Dietary Preference" as UC09
-    usecase "UC11\nView Recently\nSearched Products" as UC11
-    usecase "UC03\nUpload Product\nPackaging Photo" as UC03
+  package "This Semester (UC01–UC05)" {
+    package "Product Discovery" {
+      usecase "UC01\nSearch for a Product" as UC01
+      usecase "UC03\nUpload Product\nPackaging Photo" as UC03
+    }
+
+    package "Halal Assessment" {
+      usecase "UC02\nView Halal Status\nof a Product" as UC02
+      usecase "UC04\nManage Stored Halal\nAssessment Results" as UC04
+    }
+
+    package "Shopping" {
+      usecase "UC05\nManage Shopping List" as UC05
+    }
   }
 
-  package "Halal Assessment" {
-    usecase "UC02\nView Halal Status\nof a Product" as UC02
-    usecase "UC04\nView Ingredient\nAnalysis" as UC04
-    usecase "UC05\nView Alternative\nHalal Products" as UC05
-    usecase "UC13\nView Halal\nCertification Details" as UC13
-  }
-
-  package "Shopping List" {
-    usecase "UC06\nAdd Product to\nShopping List" as UC06
-    usecase "UC07\nView Shopping List" as UC07
-    usecase "UC08\nRemove Product from\nShopping List" as UC08
-  }
-
-  package "Community & Feedback" {
-    usecase "UC10\nShare a Product\nHalal Status" as UC10
-    usecase "UC12\nReport Incorrect\nProduct Information" as UC12
+  package "Later Phase (UC06–UC08)" {
+    usecase "UC06\nManage Uploaded\nProduct Photos" as UC06
+    usecase "UC07\nManage Community\nFeatures" as UC07
+    usecase "UC08\nManage User Profile" as UC08
   }
 
 }
 
-' --- Consumer associations ---
-Consumer -- UC01
-Consumer -- UC02
-Consumer -- UC03
-Consumer -- UC04
-Consumer -- UC05
-Consumer -- UC06
-Consumer -- UC07
-Consumer -- UC08
-Consumer -- UC09
-Consumer -- UC10
-Consumer -- UC11
-Consumer -- UC12
-Consumer -- UC13
+' --- User associations ---
+User -- UC01
+User -- UC02
+User -- UC03
+User -- UC05
+User -- UC07
+User -- UC08
 
-' --- External API associations ---
-APIs -- UC01 : <<include>>
-APIs -- UC02 : <<include>>
-APIs -- UC03 : <<include>>
-APIs -- UC13 : <<include>>
+' --- Admin associations ---
+Admin -- UC04
+Admin -- UC06
 
-' --- Include relationships ---
-UC01 .> UC02 : <<include>>
-UC02 .> UC04 : <<extend>>
-UC02 .> UC05 : <<extend>>
-UC02 .> UC13 : <<extend>>
-UC03 .> UC02 : <<include>>
-UC07 .> UC08 : <<extend>>
-UC01 .> UC09 : <<extend>>
+' --- External-service associations ---
+Services -- UC01 : product data
+Services -- UC02 : assessment data
+Services -- UC03 : OCR / LLM
+
+' --- Use-case relationships ---
+UC03 .> UC01 : <<extend>>\nNo matching product
 
 @enduml

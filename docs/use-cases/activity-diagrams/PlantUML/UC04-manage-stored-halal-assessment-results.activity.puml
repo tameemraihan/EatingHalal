@@ -1,0 +1,61 @@
+@startuml
+title Manage Stored Halal Assessment Results
+
+|Admin|
+start
+:Open stored assessments;
+
+|System|
+:Retrieve stored assessments;
+
+note right
+  Assessment Results DB
+end note
+
+:Display stored assessments
+and available filters;
+
+|Admin|
+repeat
+  :Specify search criteria
+  and filters;
+
+  |System|
+  :Query stored assessments
+  using criteria;
+
+  note right
+    Assessment Results DB
+  end note
+
+  if (Matching assessments found?) then (Yes)
+    :Display matching assessments;
+  else (No)
+    :Display no results message;
+  endif
+
+  |Admin|
+  :Review results;
+
+repeat while (Refine search?) is (Yes) not (No)
+
+if (Assessment selected?) then (Yes)
+  :Select stored assessment;
+
+  |System|
+  :Retrieve stored assessment;
+
+  note right
+    Assessment Results DB
+  end note
+
+  :Prepare product details,
+  Halal status and justification;
+
+  |Admin|
+  :View stored assessment;
+else (No)
+endif
+
+stop
+@enduml

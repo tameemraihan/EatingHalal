@@ -1,0 +1,55 @@
+@startuml UseCase2_View_Halal_Status_Activity
+
+title View Halal Status of a Product
+
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor White
+  BorderColor #555555
+  ArrowColor #333333
+}
+
+|User|
+start
+:Select product;
+
+|System|
+:Check assessment-results database
+for a stored halal assessment;
+
+if (Stored assessment exists?) then (yes)
+  :Retrieve stored assessment;
+else (no)
+|External Product Data Sources|
+:Provide required product data;
+
+|System|
+:Normalise selected product data
+to the canonical assessment format;
+note right
+  Certifications
+  Ingredients
+  Manufacturer
+  Country of Origin
+end note
+:Run halal assessment pipeline;
+
+  if (Assessment completed?) then (yes)
+    :Store assessment result
+    in assessment-results database;
+  else (no)
+    :Inform user that a confirmed
+    assessment cannot be produced;
+    stop
+  endif
+endif
+
+:Prepare product details, halal status,
+and supporting justification;
+
+|User|
+:View product details and
+halal assessment;
+stop
+
+@enduml
