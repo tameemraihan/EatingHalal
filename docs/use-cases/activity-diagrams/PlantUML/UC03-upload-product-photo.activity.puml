@@ -1,0 +1,61 @@
+@startuml UseCase3_Upload_Product_Photo_Activity
+
+title Upload Product Packaging Photo
+
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor White
+  BorderColor #555555
+  ArrowColor #333333
+}
+
+|User|
+start
+:Choose to upload a product
+packaging photo;
+:Select and upload photo;
+
+|System|
+:Validate image file;
+
+if (Image valid?) then (yes)
+  |OCR Service|
+  :Run OCR on image;
+  :Extract recognised text
+  and confidence scores;
+
+  |System|
+  :Evaluate extracted text
+  and confidence;
+
+  if (Photo readable?) then (yes)
+    |OCR / LLM Service|
+    :Structure extracted product data;
+    note right
+      Certifications
+      Ingredients
+      Manufacturer
+      Country of origin
+    end note
+
+    |System|
+    :Prepare canonical product data
+    for the assessment pipeline;
+    stop
+  else (no)
+    :Inform user that the photo
+    cannot be read reliably;
+
+    |User|
+    :Upload replacement photo;
+    detach
+  endif
+else (no)
+  :Return invalid-image error;
+
+  |User|
+  :Upload another product photo;
+  detach
+endif
+
+@enduml

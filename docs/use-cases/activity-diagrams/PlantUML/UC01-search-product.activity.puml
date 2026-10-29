@@ -1,0 +1,46 @@
+@startuml UseCase1_Search_Product_Activity
+
+title Search for a Product
+
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor White
+  BorderColor #555555
+  ArrowColor #333333
+}
+
+|User|
+start
+:Enter product name;
+
+|System|
+:Search hosted product database;
+
+|External Product Data Sources|
+:Search available product data sources;
+
+|System|
+:Combine and retrieve matching products;
+
+if (Matching product found?) then (yes)
+  :Present matching products;
+
+  |User|
+  |System|
+  stop
+else (no)
+  :Inform user that no matching
+  product was found;
+  :Offer product-photo upload;
+
+  |User|
+  if (Upload a product photo?) then (yes)
+    :Start Upload Product
+    Packaging Photo (use case 03);
+  else (no)
+    :Refine product name or end search;
+  endif
+  stop
+endif
+
+@enduml

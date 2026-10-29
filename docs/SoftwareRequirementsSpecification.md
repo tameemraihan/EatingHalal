@@ -39,19 +39,20 @@ The application is scoped exclusively to **packaged food products** — restaura
 
 Actors of this application are:
 - **Users** — individuals seeking halal product information
-- **External APIs** — third-party data sources used for certification, ingredient, and product information
+- **Admins** — authorised users who manage stored halal assessment results
+- **External Services** — third-party product-data APIs and OCR/LLM services used to process product information
 
 Planned subsystems are:
 * **Product Lookup:**
-  Users can search for a product or upload a photo of its packaging. The system queries multiple external APIs to analyze certifications, ingredient lists, manufacturer, and country of origin, then returns an instant halal/non-halal verdict with supporting rationale.
-* **Ingredient Analysis:**
-  For each product, the system breaks down individual ingredients to identify any non-halal components and explains the reasoning behind the determination.
-* **Alternative Products:**
-  When a product is determined to be non-halal, the system suggests alternative halal-certified products within the same category.
+  Users can search for a product or upload a photo of its packaging when no matching product is found.
+* **Halal Assessment:**
+  The system normalises product information from external APIs or OCR processing, evaluates the product, and displays a halal status with supporting rationale.
+* **Assessment Administration:**
+  Admins can search, review, and manage stored halal assessment results.
 * **Shopping List:**
   Users can maintain a personal saved list of halal-approved products for reference during shopping.
-* **Reporting:**
-  Users can flag and report products they believe have incorrect halal status information.
+* **Later-Phase Features:**
+  Admins will manage uploaded product photos, while users will manage community features and their user profiles.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
 | Abbreviation | Explanation                         |
@@ -81,30 +82,27 @@ A world where no one has to wonder if their food is halal.
 
 ### 2.2 Use Case Diagram
 
-The use case diagram was created using PlantUML (diagram-as-text) and rendered via Draw.io.
+The use case diagram is maintained as PlantUML source in [`EatingHalal_UseCases.puml`](./EatingHalal_UseCases.puml).
 
 ![Use Case Diagram](./UseCaseDiagram.png)
 
 #### Actors
 - **User** (Application User)
-- **External APIs**
+- **Admin** (Authorised Assessment Administrator)
+- **External Services** (Product data APIs, OCR, and LLM services)
 
 #### Use Cases
 
 | # | Use Case |
 |---|----------|
-| UC1 | Search for a product |
-| UC2 | Upload product packaging photo |
-| UC3 | View Halal status of a product |
-| UC4 | View Halal certification details |
-| UC5 | View ingredient analysis |
-| UC6 | View alternative Halal products |
-| UC7 | View recently searched products |
-| UC8 | Add product to shopping list |
-| UC9 | Remove product from shopping list |
-| UC10 | View shopping list |
-| UC11 | Share a product halal status |
-| UC12 | Report incorrect product information |
+| UC01 | Search for a Product — User — This semester |
+| UC02 | View Halal Status of a Product — User — This semester |
+| UC03 | Upload Product Packaging Photo — User — This semester |
+| UC04 | Manage Stored Halal Assessment Results — Admin — This semester |
+| UC05 | Manage Shopping List — User — This semester |
+| UC06 | Manage Uploaded Product Photos — Admin — Later phase |
+| UC07 | Manage Community Features — User — Later phase |
+| UC08 | Manage User Profile — User — Later phase |
 
 ### 2.3 Technology Stack
 The technology we use is:
@@ -138,106 +136,57 @@ Testing:
 
 ### 3.1 Functionality
 
-This section will explain the different use cases, you could see in the Use Case Diagram, and their functionality.
+This section describes the eight use cases shown in the Use Case Diagram and their functionality.
 
-Until December we plan to implement:
-- 3.1.1 Searching for a product
-- 3.1.2 Viewing halal status of a product
-- 3.1.3 Uploading a product packaging photo
-- 3.1.4 Viewing ingredient analysis
-- 3.1.5 Viewing alternative halal products
+**This semester**, the team will implement UC01 through UC05:
 
-Until June, we want to implement:
-- 3.1.6 Filtering search results by dietary preference
-- 3.1.7 Adding a product to the shopping list
-- 3.1.8 Viewing the shopping list
-- 3.1.9 Removing a product from the shopping list
-- 3.1.10 Sharing a product halal status
-- 3.1.11 Viewing recently searched products
-- 3.1.12 Reporting incorrect product information
-- 3.1.13 Viewing halal certification details
+#### 3.1.1 UC01 — Search for a Product
 
-#### 3.1.1 Searching for a product
+The user searches for a packaged food product by entering its name. The system searches the hosted product database and available external product data sources, combines matching results, and presents them to the user. When no match is found, the user can continue with photo upload.
 
-This feature is the essential one of our project. The user gets the possibility to search for a packaged food product by entering its name or scanning its barcode. The system then queries multiple data sources and returns a list of matching products for the user to select from.
+[RUP specification](./use-cases/rup/UC01-search-product.rup.md)
 
-[Search for a product](./use_cases/UC01_Search_Product.md)
+#### 3.1.2 UC02 — View Halal Status of a Product
 
-#### 3.1.2 Viewing halal status of a product
+Once a product is available, the system checks for a stored assessment. If none exists, it normalises the available product data and runs the halal assessment pipeline. The user is shown a verdict — Halal, Haram, or Mashbooh — with a plain-language justification.
 
-This feature provides the core value of the application. Once a product is selected, the system evaluates its ingredients, certifications, manufacturing details, and country of origin to deliver a halal verdict — Halal, Haram, or Mashbooh — along with a plain-language explanation.
+[RUP specification](./use-cases/rup/UC02-view-halal-status.rup.md)
 
-[View halal status](./use_cases/UC02_View_Halal_Status.md)
+#### 3.1.3 UC03 — Upload Product Packaging Photo
 
-#### 3.1.3 Uploading a product packaging photo
+When no matching product is found, the user can upload a product-packaging photo. The system validates the file and uses OCR and image analysis to extract and structure product information for the halal assessment pipeline.
 
-When a product cannot be found in the database, the user gets the possibility to upload a photo of the product packaging. The system then performs OCR and image analysis to extract the product name, barcode, ingredients, and certification marks, and proceeds with the halal assessment.
+[RUP specification](./use-cases/rup/UC03-upload-product-photo.rup.md)
 
-[Upload product packaging photo](./use_cases/UC03_Upload_Photo.md)
+#### 3.1.4 UC04 — Manage Stored Halal Assessment Results
 
-#### 3.1.4 Viewing ingredient analysis
+An authorised Admin searches, filters, reviews, and opens stored halal assessment results. The Admin can view the associated product details, halal status, and justification.
 
-This feature gives the user a detailed, ingredient-by-ingredient breakdown of a product. Each ingredient is individually classified as Halal, Haram, or Mashbooh with color-coded indicators, allowing the user to understand exactly which components influence the overall verdict.
+[RUP specification](./use-cases/rup/UC04-manage-stored-halal-assessment-results.rup.md)
 
-[View ingredient analysis](./use_cases/UC04_Ingredient_Analysis.md)
+#### 3.1.5 UC05 — Manage Shopping List
 
-#### 3.1.5 Viewing alternative halal products
+The user maintains a personal shopping list by saving products for future reference and removing products that are no longer needed. The list helps users retain products they intend to purchase or revisit.
 
-When a product is found to be Haram or Mashbooh, the app provides the user with a list of certified halal alternatives in the same product category. This helps users quickly find a suitable replacement without having to start a new search.
+**Later phase** use cases are planned but are outside this semester's implementation scope:
 
-[View alternative halal products](./use_cases/UC05_View_Alternatives.md)
+#### 3.1.6 UC06 — Manage Uploaded Product Photos
 
-#### 3.1.6 Filtering search results by dietary preference
+An Admin manages uploaded product photos and their processing status. This includes reviewing submitted photos and handling photos that cannot be processed reliably.
 
-Based on the product search results, this feature enables the user to narrow down results by additional dietary requirements such as vegan, gluten-free, or nut-free, alongside halal compliance. This way, users with multiple dietary needs can find suitable products more efficiently.
+#### 3.1.7 UC07 — Manage Community Features
 
-[Filter search results](./use_cases/UC09_Filter_Results.md)
+The user shares product information and reports incorrect product information through community features.
 
-#### 3.1.7 Adding a product to the shopping list
+#### 3.1.8 UC08 — Manage User Profile
 
-The user gets the possibility to save any product to a personal shopping list for future reference. This is useful when planning purchases in advance or when the user wants to keep a record of approved halal products they intend to buy regularly.
-
-[Add product to shopping list](./use_cases/UC06_Add_To_List.md)
-
-#### 3.1.8 Viewing the shopping list
-
-The app provides the user with a separate page view where they get an overview of all products they have saved to their shopping list, including the name, brand, and halal verdict of each item.
-
-[View shopping list](./use_cases/UC07_View_List.md)
-
-#### 3.1.9 Removing a product from the shopping list
-
-The user also gets the possibility to remove a product they no longer need from their shopping list, keeping it relevant and up to date.
-
-[Remove product from shopping list](./use_cases/UC08_Remove_From_List.md)
-
-#### 3.1.10 Sharing a product halal status
-
-There must be the possibility for users to share their findings with family or friends. The user who checks a product gets the possibility to share its halal status via a link through any messaging app, email, or clipboard. This is particularly useful in group shopping scenarios.
-
-[Share a product halal status](./use_cases/UC10_Share_Status.md)
-
-#### 3.1.11 Viewing recently searched products
-
-The app provides the user with quick access to products they have previously looked up, without having to re-enter a search query. Recent searches are shown automatically when the user opens the search field or navigates to the history section.
-
-[View recently searched products](./use_cases/UC11_Recent_Searches.md)
-
-#### 3.1.12 Reporting incorrect product information
-
-After viewing a product, the app provides the user with the possibility to flag inaccurate verdict or ingredient data by submitting a correction report. This is helpful because we want a platform with reliable and community-validated information.
-
-[Report incorrect product information](./use_cases/UC12_Report_Information.md)
-
-#### 3.1.13 Viewing halal certification details
-
-When a product carries a halal certification, the user can access the full details of the certifying organization, including its name, country, accreditation status, certificate number, and validity dates. This allows users to independently verify the legitimacy of a certification before trusting a verdict.
+The user manages account details and application preferences. This use case is planned for a later phase.
 
 ### 3.2 Usability
 We plan on designing the user interface as intuitive and self-explanatory as possible so that any user can determine the halal status of a product without prior training or technical knowledge.
 
 #### 3.2.1 No training time needed
-Our goal is that a user opens the web application and is able to use all features without any explanation or help. Search, photo upload, and shopping list management should all be immediately understandable.
+Our goal is that a user opens the web application and can use the current-semester features without explanation or help. Product search, photo upload, halal-status viewing, and shopping-list management should all be immediately understandable.
 
 #### 3.2.2 Familiar Feeling
 We want to implement a web app with familiar designs and interactions. Users should be able to navigate the application using patterns they already know from other product lookup or food apps.
@@ -248,7 +197,7 @@ We want to implement a web app with familiar designs and interactions. Users sho
 The server shall be available 95% of the time. Any planned downtime should be scheduled during off-peak hours to minimize disruption to users.
 
 #### 3.3.2 Defect Rate
-Our goal is to have no loss of user data. Shopping lists and search history must be preserved across sessions, even after a server restart or downtime.
+Our goal is to have no loss of user data. Shopping lists and stored halal assessment results must be preserved across sessions, even after a server restart or downtime.
 
 ### 3.4 Performance
 
@@ -264,7 +213,7 @@ Product lookup results should be returned within 3 seconds under normal load. Ph
 We will write code following common clean code standards. Variables, methods, and components will be named clearly by their function. This will keep the codebase readable and make further development easier.
 
 #### 3.5.2 Testing Strategy
-The application will have high test coverage. All critical functionality — including halal verdict logic, API integrations, and shopping list operations — must be covered by unit and integration tests. Bugs should be discoverable and locatable quickly through automated testing.
+The application will have high test coverage. All critical functionality — including halal assessment logic, API integrations, OCR processing, stored-assessment management, and shopping-list operations — must be covered by unit and integration tests. Bugs should be discoverable and locatable quickly through automated testing.
 
 ### 3.6 Design Constraints
 We are aiming for a modern, clean, and responsive web design. Functionality will be kept modular to allow independent development of frontend and backend.
@@ -279,7 +228,7 @@ Supported platforms:
 - Desktop and mobile browsers
 
 ### 3.7 Online User Documentation and Help System Requirements
-The usage of the application should be as intuitive as possible so it will not need extensive documentation. If the user needs help, a FAQ section will be available within the application covering common questions about halal status verdicts, how to report incorrect information, and how to use the shopping list.
+The usage of the application should be as intuitive as possible so it will not need extensive documentation. If the user needs help, a FAQ section will be available within the application covering common questions about halal-status verdicts, product-photo upload, and shopping-list management. Community reporting guidance will be added in the later phase.
 
 ### 3.8 Purchased Components
 We don't have any purchased components yet. External APIs used for product and ingredient data may require paid tiers as usage scales; these will be listed here when confirmed.
@@ -288,19 +237,21 @@ We don't have any purchased components yet. External APIs used for product and i
 
 #### 3.9.1 User Interfaces
 The user interfaces to be implemented are:
-- **Home / Search Page** — allows users to search for a product by name or barcode
-- **Product Result Page** — displays the halal verdict, certification details, and ingredient analysis for a selected product
+- **Home / Search Page** — allows users to search for a product by name
+- **Search Results Page** — displays matching products returned from hosted and external data sources
 - **Photo Upload Page** — allows users to upload a product packaging photo for OCR-based analysis
-- **Alternatives Page** — shows halal-certified alternative products when a product is non-halal
+- **Halal Assessment Page** — displays the halal verdict and supporting justification for a product
+- **Stored Assessments Page** — allows authorised Admins to search, filter, and review stored assessment results
 - **Shopping List Page** — displays all products saved by the user with their halal verdicts
-- **Recent Searches Page** — shows the user's previously searched products
-- **Report Page** — allows users to submit a correction report for incorrect product information
+- **Uploaded Photo Management Page** *(later phase)* — allows Admins to manage uploaded product photos
+- **Community Features Page** *(later phase)* — supports sharing and reporting product information
+- **User Profile Page** *(later phase)* — allows users to manage account details and preferences
 
 #### 3.9.2 Hardware Interfaces
 (n/a)
 
 #### 3.9.3 Software Interfaces
-The application will be accessible via any modern web browser. The backend exposes a RESTful API consumed by the ReactJS frontend. External APIs are integrated server-side for product data, ingredient analysis, and halal certification lookups.
+The application will be accessible via any modern web browser. The backend exposes a RESTful API consumed by the ReactJS frontend. External services are integrated server-side for product data and OCR/LLM processing.
 
 #### 3.9.4 Communication Interfaces
 The frontend and backend communicate over HTTPS. External API calls are made server-side over HTTPS.
@@ -309,7 +260,7 @@ The frontend and backend communicate over HTTPS. External API calls are made ser
 (to be determined)
 
 ### 3.11 Legal, Copyright, and Other Notices
-We do not take responsibility for any incorrect halal verdicts resulting from inaccurate or outdated data provided by external APIs. Users are encouraged to report any incorrect information using the in-app reporting feature.
+We do not take responsibility for any incorrect halal verdicts resulting from inaccurate or outdated data provided by external APIs. Community reporting of incorrect information is planned for a later phase.
 
 ### 3.12 Applicable Standards
 The development will follow common clean code standards and naming conventions. A definition of done will be established and added here once finalized.
