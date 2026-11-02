@@ -1,0 +1,32 @@
+# Maven build output
+/target/
+
+# Maven Wrapper (keep the wrapper configuration in source control)
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+# IntelliJ IDEA
+/.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+/.vscode/
+
+# Eclipse / Spring Tool Suite
+/.classpath
+/.project
+/.settings/
+/.factorypath
+/.sts4-cache/
+
+# OS and JVM-generated files
+.DS_Store
+Thumbs.db
+hs_err_pid*
+replay_pid*
+
+# Logs
+*.log
+spring.log
