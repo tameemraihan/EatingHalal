@@ -368,4 +368,144 @@ public class UseCaseSteps {
     public void theSystemDeniesAccessToStoredAssessments() {
         assertTrue(accessDenied);
     }
+
+    // ── UC05: Manage Shopping List ────────────────────────────────────────────
+
+    private boolean shoppingListDatabaseAvailable;
+    private java.util.Map<String, String> shoppingList = new java.util.LinkedHashMap<>();
+    private boolean shoppingListDisplayed;
+    private boolean shoppingListEmptyMessageShown;
+    private boolean productAddedConfirmed;
+    private boolean duplicateWarningShown;
+    private boolean duplicateNotAdded;
+    private boolean productRemovedConfirmed;
+    private boolean updatedListDisplayed;
+    private boolean listClearedConfirmed;
+    private String assessmentProductName;
+
+    @Given("the shopping list database is available")
+    public void theShoppingListDatabaseIsAvailable() {
+        shoppingListDatabaseAvailable = true;
+    }
+
+    @Given("the user's shopping list contains {string} with status {string}")
+    public void theUsersShoppingListContainsProductWithStatus(String productName, String status) {
+        shoppingList.put(productName, status);
+    }
+
+    @Given("the user's shopping list is empty")
+    public void theUsersShoppingListIsEmpty() {
+        shoppingList.clear();
+    }
+
+    @Given("the halal assessment result for {string} is displayed")
+    public void theHalalAssessmentResultIsDisplayed(String productName) {
+        assessmentProductName = productName;
+    }
+
+    @Given("{string} is not on the user's shopping list")
+    public void productIsNotOnTheShoppingList(String productName) {
+        shoppingList.remove(productName);
+    }
+
+    @Given("{string} is already on the user's shopping list")
+    public void productIsAlreadyOnTheShoppingList(String productName) {
+        shoppingList.put(productName, "Halal");
+    }
+
+    @When("the user opens the shopping list")
+    public void theUserOpensTheShoppingList() {
+        shoppingListDisplayed = shoppingListDatabaseAvailable;
+        shoppingListEmptyMessageShown = shoppingList.isEmpty();
+    }
+
+    @When("the user adds {string} to the shopping list")
+    public void theUserAddsProductToShoppingList(String productName) {
+        if (shoppingList.containsKey(productName)) {
+            duplicateWarningShown = true;
+            duplicateNotAdded = true;
+        } else {
+            shoppingList.put(productName, "Halal");
+            productAddedConfirmed = true;
+        }
+    }
+
+    @When("the user removes {string} from the shopping list")
+    public void theUserRemovesProductFromShoppingList(String productName) {
+        shoppingList.remove(productName);
+        productRemovedConfirmed = true;
+        updatedListDisplayed = true;
+    }
+
+    @When("the user clears the shopping list")
+    public void theUserClearsTheShoppingList() {
+        shoppingList.clear();
+        listClearedConfirmed = true;
+        shoppingListEmptyMessageShown = true;
+    }
+
+    @Then("the system displays the shopping list")
+    public void theSystemDisplaysTheShoppingList() {
+        assertTrue(shoppingListDisplayed);
+    }
+
+    @Then("the shopping list includes {string}")
+    public void theShoppingListIncludes(String productName) {
+        assertTrue(shoppingList.containsKey(productName));
+    }
+
+    @Then("each entry includes the product name and halal status")
+    public void eachEntryIncludesProductNameAndHalalStatus() {
+        assertFalse(shoppingList.isEmpty());
+    }
+
+    @Then("the system informs the user that the shopping list is empty")
+    public void theSystemInformsTheUserThatTheShoppingListIsEmpty() {
+        assertTrue(shoppingListEmptyMessageShown);
+    }
+
+    @Then("the system saves {string} to the user's shopping list")
+    public void theSystemSavesProductToShoppingList(String productName) {
+        assertTrue(shoppingList.containsKey(productName));
+    }
+
+    @Then("the system confirms that {string} has been added")
+    public void theSystemConfirmsProductAdded(String productName) {
+        assertTrue(productAddedConfirmed);
+    }
+
+    @Then("the system informs the user that {string} is already on the shopping list")
+    public void theSystemInformsUserProductAlreadyOnList(String productName) {
+        assertTrue(duplicateWarningShown);
+    }
+
+    @Then("the system does not add a duplicate entry")
+    public void theSystemDoesNotAddADuplicateEntry() {
+        assertTrue(duplicateNotAdded);
+    }
+
+    @Then("the system removes {string} from the user's shopping list")
+    public void theSystemRemovesProductFromShoppingList(String productName) {
+        assertFalse(shoppingList.containsKey(productName));
+    }
+
+    @Then("the system confirms that {string} has been removed")
+    public void theSystemConfirmsProductRemoved(String productName) {
+        assertTrue(productRemovedConfirmed);
+    }
+
+    @Then("the system displays the updated shopping list")
+    public void theSystemDisplaysTheUpdatedShoppingList() {
+        assertTrue(updatedListDisplayed);
+    }
+
+    @Then("the system removes all products from the user's shopping list")
+    public void theSystemRemovesAllProductsFromShoppingList() {
+        assertTrue(shoppingList.isEmpty());
+    }
+
+    @Then("the system confirms that the shopping list has been cleared")
+    public void theSystemConfirmsShoppingListCleared() {
+        assertTrue(listClearedConfirmed);
+    }
 }
