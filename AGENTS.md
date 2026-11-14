@@ -226,10 +226,44 @@ Ask all questions in one message. Do not proceed to drafting until all are answe
 Use the answers and the git context to write the post. Follow these rules:
 
 **Structure** (based on existing posts):
-- Opening paragraph: what phase/context the team is in and what this week was about
-- Section per major topic worked on (use case work, testing, tooling, documentation, etc.)
-- Closing paragraph: what's coming next
-- AI declaration at the end (see below)
+
+```
+## <N>. <Post Title>
+
+<Intro paragraph: which RUP phase the team is in, what this week was about — 2–3 sentences>
+
+## <Major topic 1>
+<1–3 paragraphs. If covering multiple items (e.g. one per UC), use H3 subsections>
+
+### <Subtopic if needed>
+<Embed diagram or image if one exists for this topic. One sentence of context is enough — let the visual do the work>
+...
+
+## <Major topic 2>
+...
+
+## Feedback from Last Week
+<Address any comments or feedback from the previous blog post. If none, omit this section>
+
+## What's Next
+<1 paragraph on what the team is working on next>
+
+---
+*AI declaration*
+```
+
+**Section naming guidance:**
+- Use one H2 section per major work area (e.g. "Restructuring the Documentation", "Writing UC05", "Use Case Diagram Improvements")
+- Use H3 subsections within a section when detailing multiple items of the same type (e.g. one H3 per UC worked on)
+- "Feedback from Last Week" is always its own H2 if there is feedback to address
+- "What's Next" is always the final H2 before the declaration
+
+**Visuals — embed where relevant:**
+- Embed rendered PNG diagrams (activity diagrams, use case diagram) directly in the post using markdown image syntax
+- Use the GitHub raw URL of the PNG from `docs/assets/images/` for the image src
+- Place the image immediately after the sentence that introduces the topic it illustrates
+- One short sentence of context is sufficient — do not describe what is already visible in the diagram
+- Prefer showing over telling: if a diagram exists for what is being discussed, embed it; do not describe it in prose instead
 
 **Tone:**
 - Technical, team-focused, relatively formal — consistent with existing posts
