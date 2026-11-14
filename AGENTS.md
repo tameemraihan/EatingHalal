@@ -189,3 +189,65 @@ Feature files must correspond to a documented use case. The feature file name mu
 
 - All Cucumber scenarios for the affected UC must pass
 - No compilation errors or test failures introduced in unrelated UCs
+
+---
+
+## Task: Write Blog Post
+
+Triggered by: "execute task: Write Blog Post"
+
+### What this task does
+
+Drafts a new EatingHalal blog post in the same tone and structure as the existing posts at https://eatinghalal2.wordpress.com. The post documents what the team did this week, grounded in both what changed in the repository and what was covered in class.
+
+### Step 1 — gather context from git
+
+Before asking any questions, read the repository to understand what changed since the last post:
+
+- Run `git log --oneline` to identify recent commits
+- Run `git diff <last-post-commit>..HEAD --name-only` to list changed files
+- Read any new or significantly modified files (new UC specs, feature files, diagrams, SRS changes)
+- Summarise internally: what was built, what was restructured, what was added
+
+### Step 2 — ask the user these questions
+
+Ask all questions in one message. Do not proceed to drafting until all are answered.
+
+1. **Class topic:** What was the class about this week? (e.g. "UML use case diagrams", "RUP phases", "Scrum and agile")
+2. **Lecture material:** Is there any lecture material, slide deck, or resource to link or reference in the post?
+3. **Connection to class:** How did what you did in the project this week connect to what you learned in class? What drove the specific decisions made?
+4. **Challenges:** Was anything unexpectedly hard, or did anything not go as planned?
+5. **Decisions made:** Were there any design or process decisions worth explaining (e.g. why a certain structure was chosen, why something was dropped)?
+6. **What's next:** What is the team working on next?
+7. **Anything else:** Is there anything else worth mentioning — feedback received, tools tried, team dynamics?
+
+### Step 3 — draft the post
+
+Use the answers and the git context to write the post. Follow these rules:
+
+**Structure** (based on existing posts):
+- Opening paragraph: what phase/context the team is in and what this week was about
+- Section per major topic worked on (use case work, testing, tooling, documentation, etc.)
+- Closing paragraph: what's coming next
+- AI declaration at the end (see below)
+
+**Tone:**
+- Technical, team-focused, relatively formal — consistent with existing posts
+- Write as "the team" / "we", not as an individual
+- Explain decisions and reasoning, not just what was done
+
+**Links:**
+- Link to specific GitHub files or commits where relevant
+- Link to the blog, YouTrack board, or other referenced resources
+- Link to any lecture material the user provided
+
+**AI declaration** (always include at the end):
+> *This post was drafted with the assistance of an AI language model. All project decisions, implementations, and content reflect the authentic work of the EatingHalal team. The team reviewed and is responsible for all published content.*
+
+**Length:** Consistent with existing posts — substantive but not padded. Roughly 400–700 words excluding the declaration.
+
+### What not to do
+
+- Do not invent decisions or technical details not confirmed by the user or visible in git
+- Do not mention specific commit hashes or internal file paths in the post body unless directly relevant to the reader
+- Do not pad the post with generic filler about software engineering
