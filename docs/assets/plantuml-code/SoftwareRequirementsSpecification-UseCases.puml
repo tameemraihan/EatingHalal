@@ -1,0 +1,68 @@
+@startuml EatingHalal_UseCases
+
+left to right direction
+
+skinparam shadowing false
+skinparam usecase {
+  BackgroundColor White
+  BorderColor #333333
+  ArrowColor #333333
+  FontSize 13
+}
+skinparam actor {
+  BackgroundColor White
+  BorderColor #333333
+  FontSize 13
+}
+skinparam rectangle {
+  BorderColor #333333
+  BorderThickness 2
+  FontSize 14
+  FontStyle bold
+}
+
+actor User as User
+actor Admin as Admin
+actor "External Services" as Services
+
+rectangle "EatingHalal" {
+
+  rectangle "Product Discovery" {
+    usecase "Search for a Product" as UC01
+    usecase "Upload Product\nPackaging Photo" as UC03
+    usecase "Manage Uploaded\nProduct Photos" as UC06
+  }
+
+  rectangle "Halal Assessment" {
+    usecase "View Halal Status\nof a Product" as UC02
+    usecase "Manage Stored Halal\nAssessment Results" as UC04
+  }
+
+  rectangle "Shopping" {
+    usecase "Manage Shopping List" as UC05
+  }
+
+  rectangle "Community & Profile" {
+    usecase "Manage Community\nFeatures" as UC07
+    usecase "Manage User Profile" as UC08
+  }
+
+}
+
+User -- UC01
+User -- UC02
+User -- UC03
+User -- UC05
+User -- UC07
+User -- UC08
+
+Admin -- UC04
+Admin -- UC06
+
+Services -- UC01
+Services -- UC02
+Services -- UC03
+
+UC03 .> UC01 : <<extend>>
+
+@enduml

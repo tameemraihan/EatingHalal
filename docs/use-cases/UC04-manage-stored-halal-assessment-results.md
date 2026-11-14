@@ -1,41 +1,25 @@
-# EatingHalal
-
 # Use-Case Specification: Manage Stored Halal Assessment Results
-
-**Document identifier:** Use Case 04<br>
-**Version:** 1.0<br>
-**Date:** 22 October 2026
-
-## Revision History
-
-| Date | Version | Description | Author |
-|---|---:|---|---|
-| 22 October 2026 | 1.0 | Initial use-case specification | EatingHalal Team |
 
 ## Table of Contents
 
-1. [Use-Case Name](#1-use-case-name)
-   - [Brief Description](#11-brief-description)
+1. [Brief Description](#1-brief-description)
 2. [Flow of Events](#2-flow-of-events)
-   - [Basic Flow](#21-basic-flow)
-   - [Alternative Flows](#22-alternative-flows)
-     - [No Matching Assessments Found](#221-no-matching-assessments-found)
-     - [Refine Search](#222-refine-search)
-     - [No Assessment Selected](#223-no-assessment-selected)
+   - [2.1 Basic Flow](#21-basic-flow)
+   - [2.2 Alternative Flows](#22-alternative-flows)
+     - [2.2.1 No Matching Assessments Found](#221-no-matching-assessments-found)
+     - [2.2.2 Refine Search](#222-refine-search)
+     - [2.2.3 No Assessment Selected](#223-no-assessment-selected)
+   - [Activity Diagram](#activity-diagram)
 3. [Special Requirements](#3-special-requirements)
-   - [Access Control](#31-access-control)
-   - [Search and Filtering](#32-search-and-filtering)
-   - [Assessment Detail](#33-assessment-detail)
+   - [3.1 Access Control](#31-access-control)
+   - [3.2 Search and Filtering](#32-search-and-filtering)
+   - [3.3 Assessment Detail](#33-assessment-detail)
 4. [Preconditions](#4-preconditions)
 5. [Postconditions](#5-postconditions)
 6. [Extension Points](#6-extension-points)
-   - [Stored Assessment Displayed](#61-stored-assessment-displayed)
+   - [6.1 Stored Assessment Displayed](#61-stored-assessment-displayed)
 
-## 1. Use-Case Name
-
-**Manage Stored Halal Assessment Results**
-
-### 1.1 Brief Description
+## 1. Brief Description
 
 An **Admin** manages previously stored halal assessment results. The Admin opens the stored assessments, applies search criteria and filters, reviews the matching results, and selects one assessment to view its product details, halal status, and justification. If no assessment matches the search criteria, the system informs the Admin. The Admin may refine the search and repeat the query.
 
@@ -84,6 +68,12 @@ After [step 7 of the basic flow](#basic-flow-step-7), the Admin chooses to refin
 After [step 7 of the basic flow](#basic-flow-step-7), the Admin does not select an assessment.
 
 1. The system ends the use case without displaying an individual stored assessment.
+
+### Activity Diagram
+
+![Activity Diagram](../assets/images/UC04-manage-stored-halal-assessment-results.png)
+
+[PlantUML source](../assets/plantuml-code/UC04-manage-stored-halal-assessment-results.puml) | [Cucumber feature](../../backend/src/test/resources/features/uc04_manage_stored_assessments.feature)
 
 ## 3. Special Requirements
 

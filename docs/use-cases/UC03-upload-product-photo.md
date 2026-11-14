@@ -1,43 +1,27 @@
-# EatingHalal
-
 # Use-Case Specification: Upload Product Packaging Photo
-
-**Document identifier:** Use Case 03<br>
-**Version:** 1.0<br>
-**Date:** 29 October 2026
-
-## Revision History
-
-| Date | Version | Description | Author |
-|---|---:|---|---|
-| 29 October 2026 | 1.0 | Initial use-case specification | EatingHalal Team |
 
 ## Table of Contents
 
-1. [Use-Case Name](#1-use-case-name)
-   - [Brief Description](#11-brief-description)
+1. [Brief Description](#1-brief-description)
 2. [Flow of Events](#2-flow-of-events)
-   - [Basic Flow](#21-basic-flow)
-   - [Alternative Flows](#22-alternative-flows)
-     - [Invalid Image File](#221-invalid-image-file)
-     - [Unreadable Photo](#222-unreadable-photo)
-     - [Insufficient Product Information](#223-insufficient-product-information)
+   - [2.1 Basic Flow](#21-basic-flow)
+   - [2.2 Alternative Flows](#22-alternative-flows)
+     - [2.2.1 Invalid Image File](#221-invalid-image-file)
+     - [2.2.2 Unreadable Photo](#222-unreadable-photo)
+     - [2.2.3 Insufficient Product Information](#223-insufficient-product-information)
+   - [Activity Diagram](#activity-diagram)
 3. [Special Requirements](#3-special-requirements)
-   - [Image Validation](#31-image-validation)
-   - [Product Information](#32-product-information)
-   - [Response Time](#33-response-time)
-   - [Usability](#34-usability)
-   - [Interfaces and Availability](#35-interfaces-and-availability)
+   - [3.1 Image Validation](#31-image-validation)
+   - [3.2 Product Information](#32-product-information)
+   - [3.3 Response Time](#33-response-time)
+   - [3.4 Usability](#34-usability)
+   - [3.5 Interfaces and Availability](#35-interfaces-and-availability)
 4. [Preconditions](#4-preconditions)
 5. [Postconditions](#5-postconditions)
 6. [Extension Points](#6-extension-points)
-   - [Structured Product Data Prepared](#61-structured-product-data-prepared)
+   - [6.1 Structured Product Data Prepared](#61-structured-product-data-prepared)
 
-## 1. Use-Case Name
-
-**Upload Product Packaging Photo**
-
-### 1.1 Brief Description
+## 1. Brief Description
 
 A **User** uploads a photo of a packaged food product when a suitable product cannot be found through search, or when the user chooses to identify a product from its packaging. The system validates the image, uses Optical Character Recognition (OCR) to extract text, and uses an OCR/Large Language Model (LLM) service to structure the available product information. The resulting data is prepared in the canonical format required by the halal assessment pipeline.
 
@@ -63,28 +47,34 @@ A **User** uploads a photo of a packaged food product when a suitable product ca
 
 #### 2.2.1 Invalid Image File
 
-At step 3 of the basic flow, the image file is invalid.
+At [step 3 of the basic flow](#21-basic-flow), the image file is invalid.
 
 1. The system returns an invalid-image error to the user.
 2. The user uploads another product photo.
-3. The flow resumes at step 3 of the basic flow.
+3. The flow resumes at [step 3 of the basic flow](#21-basic-flow).
 
 #### 2.2.2 Unreadable Photo
 
-At step 6 of the basic flow, the extracted text has insufficient confidence and the photo is unreadable.
+At [step 6 of the basic flow](#21-basic-flow), the extracted text has insufficient confidence and the photo is unreadable.
 
 1. The system informs the user that the photo cannot be read reliably.
 2. The system asks the user to upload another product photo.
 3. The user uploads a replacement photo.
-4. The flow resumes at step 3 of the basic flow.
+4. The flow resumes at [step 3 of the basic flow](#21-basic-flow).
 
 #### 2.2.3 Insufficient Product Information
 
-At step 7 of the basic flow, the extracted information is insufficient to prepare usable structured product data.
+At [step 7 of the basic flow](#21-basic-flow), the extracted information is insufficient to prepare usable structured product data.
 
 1. The system informs the user which essential product information could not be identified.
 2. The user uploads a clearer or more complete photo of the product packaging.
-3. The flow resumes at step 3 of the basic flow.
+3. The flow resumes at [step 3 of the basic flow](#21-basic-flow).
+
+### Activity Diagram
+
+![Activity Diagram](../assets/images/UC03-upload-product-photo.png)
+
+[PlantUML source](../assets/plantuml-code/UC03-upload-product-photo.puml) | [Cucumber feature](../../backend/src/test/resources/features/uc03_upload_product_photo.feature)
 
 ## 3. Special Requirements
 
@@ -117,7 +107,7 @@ The web application communicates with the OCR and OCR/LLM services using HTTP an
 ## 5. Postconditions
 
 1. A valid uploaded photo has been processed, or the user has been informed why it could not be processed.
-2. When sufficient information is extracted, canonical structured product data is available for the **View Halal Status of a Product** use case.
+2. When sufficient information is extracted, canonical structured product data is available for [View Halal Status of a Product (UC02)](UC02-view-halal-status.md).
 
 ## 6. Extension Points
 
@@ -125,4 +115,4 @@ The web application communicates with the OCR and OCR/LLM services using HTTP an
 
 After the system prepares the structured product data, the user may continue to a related use case:
 
-- View halal status using the structured product data.
+- [View Halal Status of a Product (UC02)](UC02-view-halal-status.md)

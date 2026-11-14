@@ -1,0 +1,75 @@
+@startuml UC05_Manage_Shopping_List_Activity
+
+title Manage Shopping List
+
+skinparam shadowing false
+skinparam activity {
+  BackgroundColor White
+  BorderColor #555555
+  ArrowColor #333333
+}
+
+|User|
+start
+
+fork
+  :Open shopping list;
+
+  |System|
+  :Retrieve user's saved products;
+
+  if (Shopping list empty?) then (yes)
+    :Inform user that the
+    shopping list is empty;
+    stop
+  else (no)
+    :Display shopping list
+    with product names
+    and halal statuses;
+
+    |User|
+    if (Action?) then (Remove product)
+      :Select product to remove;
+
+      |System|
+      :Remove selected product
+      from shopping list;
+      :Confirm removal to user;
+      :Display updated shopping list;
+      stop
+    else if (Action?) then (Clear list)
+      |System|
+      :Remove all products
+      from shopping list;
+      :Confirm list cleared to user;
+      :Inform user that the
+      shopping list is empty;
+      stop
+    else (Done)
+      stop
+    endif
+  endif
+
+fork again
+  :View halal assessment result
+  (UC02);
+
+  |User|
+  :Choose to add product
+  to shopping list;
+
+  |System|
+  if (Product already on list?) then (yes)
+    :Inform user product is
+    already on shopping list;
+    stop
+  else (no)
+    :Save product to
+    shopping list;
+    :Confirm product added to user;
+    stop
+  endif
+
+end fork
+
+@enduml
