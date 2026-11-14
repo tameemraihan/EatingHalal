@@ -1,6 +1,6 @@
-# CLAUDE.md — EatingHalal Project Instructions
+# AGENTS.md — EatingHalal Project Instructions
 
-This file tells Claude how to work in this repository. When the user names a task, apply only the rules for that task scope in addition to the project-wide context below.
+This file tells AI agents how to work in this repository. When the user names a task, apply only the rules for that task scope in addition to the project-wide context below.
 
 ---
 
