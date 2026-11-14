@@ -33,7 +33,7 @@
 This Software Requirements Specification (SRS) describes all specifications for the application "EatingHalal". It includes an overview of this project and its vision, detailed information about the planned features, and the boundary conditions of the development process.
 
 ### 1.2 Scope
-EatingHalal is a web application that helps users determine whether packaged food products comply with Islamic dietary laws. Halal is defined as food that is permissible, lawful, and clean according to Islamic dietary guidelines.
+EatingHalal is a web application that helps users determine whether packaged food products comply with Islamic dietary guidelines. Halal is defined as food that is permissible, lawful, and clean according to Islamic dietary guidelines.
 
 The application is scoped exclusively to **packaged food products** — restaurants and freshly prepared foods are out of scope.
 

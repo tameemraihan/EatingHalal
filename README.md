@@ -1,6 +1,6 @@
 # EatingHalal
 
-A web application that helps users determine whether packaged food products comply with Islamic dietary laws.
+A web application that helps users determine whether packaged food products comply with Islamic dietary guidelines.
 
 ## Repository Map
 
