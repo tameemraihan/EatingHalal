@@ -6,7 +6,7 @@ This file tells AI agents how to work in this repository. When the user names a 
 
 ## Project Overview
 
-**EatingHalal** is a web application that helps users determine whether packaged food products comply with Islamic dietary laws. It is a university project for Software Engineering at DHBW Mosbach (CS TINFO25).
+**EatingHalal** is a web application that helps users determine whether packaged food products comply with Islamic dietary guidelines. It is a university project for Software Engineering at DHBW Mosbach (CS TINFO25).
 
 **Repository structure:**
 - `README.md` — front door: project description, repo map, tech stack, links
