@@ -1,5 +1,19 @@
-/halal_assessment_chat_export.md
+# Build output
+**/target/
+
+# IntelliJ IDEA
+/.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
 /archive
-/eating-halal-demo/target
-/**/target
-/.idea
+/halal_assessment_chat_export.md

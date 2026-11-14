@@ -1,42 +1,26 @@
-# EatingHalal
-
 # Use-Case Specification: View Halal Status of a Product
-
-**Document identifier:** Use Case 02<br>
-**Version:** 1.0<br>
-**Date:** 29 October 2026
-
-## Revision History
-
-| Date | Version | Description | Author |
-|---|---:|---|---|
-| 29 October 2026 | 1.0 | Initial use-case specification | EatingHalal Team |
 
 ## Table of Contents
 
-1. [Use-Case Name](#1-use-case-name)
-   - [Brief Description](#11-brief-description)
+1. [Brief Description](#1-brief-description)
 2. [Flow of Events](#2-flow-of-events)
-   - [Basic Flow](#21-basic-flow)
-   - [Alternative Flows](#22-alternative-flows)
-     - [No Stored Assessment Exists](#221-no-stored-assessment-exists)
-     - [Assessment Cannot Be Completed](#222-assessment-cannot-be-completed)
+   - [2.1 Basic Flow](#21-basic-flow)
+   - [2.2 Alternative Flows](#22-alternative-flows)
+     - [2.2.1 No Stored Assessment Exists](#221-no-stored-assessment-exists)
+     - [2.2.2 Assessment Cannot Be Completed](#222-assessment-cannot-be-completed)
+   - [Activity Diagram](#activity-diagram)
 3. [Special Requirements](#3-special-requirements)
-   - [Assessment Explanation](#31-assessment-explanation)
-   - [Product Information](#32-product-information)
-   - [Response Time](#33-response-time)
-   - [Usability](#34-usability)
-   - [Interfaces and Availability](#35-interfaces-and-availability)
+   - [3.1 Assessment Explanation](#31-assessment-explanation)
+   - [3.2 Product Information](#32-product-information)
+   - [3.3 Response Time](#33-response-time)
+   - [3.4 Usability](#34-usability)
+   - [3.5 Interfaces and Availability](#35-interfaces-and-availability)
 4. [Preconditions](#4-preconditions)
 5. [Postconditions](#5-postconditions)
 6. [Extension Points](#6-extension-points)
-   - [Assessment Result Displayed](#61-assessment-result-displayed)
+   - [6.1 Assessment Result Displayed](#61-assessment-result-displayed)
 
-## 1. Use-Case Name
-
-**View Halal Status of a Product**
-
-### 1.1 Brief Description
+## 1. Brief Description
 
 A **User** views the halal status of a selected packaged food product. The system first checks whether a stored assessment is available. When no stored assessment exists, the system obtains the required product data, normalises it into the canonical format required by the halal assessment pipeline, runs the assessment, and stores the result. The system then displays the product details, halal status, and a justification.
 
@@ -61,21 +45,27 @@ Halal means permissible, lawful, and clean under Islamic dietary guidelines. The
 
 #### 2.2.1 No Stored Assessment Exists
 
-At step 2 of the basic flow, no stored assessment exists for the selected product.
+At [step 2 of the basic flow](#21-basic-flow), no stored assessment exists for the selected product.
 
 1. The system fetches the required product data from the available data sources when needed.
-2. The system normalises the selected product data into the canonical format used by the halal assessment pipeline. This format is also used for data extracted from an uploaded product photo.
+2. The system normalises the selected product data into the canonical format used by the halal assessment pipeline. This format is also used for data extracted from an [uploaded product photo (UC03)](UC03-upload-product-photo.md).
 3. The system runs the halal assessment pipeline using the normalised product information.
 4. The system stores the resulting assessment in the assessment-results database.
-5. The flow resumes at step 4 of the basic flow.
+5. The flow resumes at [step 4 of the basic flow](#21-basic-flow).
 
 #### 2.2.2 Assessment Cannot Be Completed
 
-At step 1 of alternative flow 2.2.1, the system cannot retrieve enough reliable product information, or a required assessment service is unavailable.
+At [step 1 of alternative flow 2.2.1](#221-no-stored-assessment-exists), the system cannot retrieve enough reliable product information, or a required assessment service is unavailable.
 
 1. The system informs the user that a confirmed halal assessment cannot currently be produced.
 2. The system does not display an unsupported assessment as a confirmed result.
 3. The use case ends.
+
+### Activity Diagram
+
+![Activity Diagram](../assets/images/UC02-view-halal-status.png)
+
+[PlantUML source](../assets/plantuml-code/UC02-view-halal-status.puml) | [Cucumber feature](../../backend/src/test/resources/features/uc02_view_halal_status.feature)
 
 ## 3. Special Requirements
 
@@ -102,12 +92,12 @@ The web application communicates with its backend and external data sources usin
 ## 4. Preconditions
 
 1. The EatingHalal web application is available to the user.
-2. The user has selected a product from a product search or product-photo upload.
+2. The user has selected a product from a [product search (UC01)](UC01-search-product.md) or [product-photo upload (UC03)](UC03-upload-product-photo.md).
 3. To create a new assessment, the required product data sources and assessment pipeline are available.
 
 ## 5. Postconditions
 
-1. The user has been shown the selected product’s details, halal status, and supporting justification, or has been informed that a confirmed assessment cannot be produced.
+1. The user has been shown the selected product's details, halal status, and supporting justification, or has been informed that a confirmed assessment cannot be produced.
 2. If no stored assessment was available and a new assessment was completed, the resulting assessment is stored in the assessment-results database for later retrieval.
 
 ## 6. Extension Points

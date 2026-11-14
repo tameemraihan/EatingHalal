@@ -73,7 +73,7 @@ Planned subsystems are:
 | [GitHub](https://github.com/tameemraihan/EatingHalal)                                          | 01.10.2026 | EatingHalal Team        |
 
 ### 1.5 Overview
-The following chapter provides an overall description of this project including its vision and Use Case Diagram. The third chapter delivers specific requirements covering functionality, usability, reliability, performance, and design constraints. The final chapter contains supporting information.
+The following chapter provides an overall description of this project including its vision and [Use Case Diagram](#22-use-case-diagram). The [third chapter](#3-specific-requirements) delivers specific requirements covering functionality, usability, reliability, performance, and design constraints. The [final chapter](#4-supporting-information) contains supporting information.
     
 ## 2. Overall Description
 
@@ -82,9 +82,9 @@ A world where no one has to wonder if their food is halal.
 
 ### 2.2 Use Case Diagram
 
-The use case diagram is maintained as PlantUML source in [`EatingHalal_UseCases.puml`](./EatingHalal_UseCases.puml).
+The use case diagram is maintained as PlantUML source in [`SoftwareRequirementsSpecification-UseCases.puml`](./assets/plantuml-code/SoftwareRequirementsSpecification-UseCases.puml).
 
-![Use Case Diagram](./UseCaseDiagram.png)
+![Use Case Diagram](./assets/images/SoftwareRequirementsSpecification-UseCases.png)
 
 #### Actors
 - **User** (Application User)
@@ -95,11 +95,11 @@ The use case diagram is maintained as PlantUML source in [`EatingHalal_UseCases.
 
 | # | Use Case |
 |---|----------|
-| UC01 | Search for a Product — User — This semester |
-| UC02 | View Halal Status of a Product — User — This semester |
-| UC03 | Upload Product Packaging Photo — User — This semester |
-| UC04 | Manage Stored Halal Assessment Results — Admin — This semester |
-| UC05 | Manage Shopping List — User — This semester |
+| UC01 | [Search for a Product](./use-cases/UC01-search-product.md) — User — This semester |
+| UC02 | [View Halal Status of a Product](./use-cases/UC02-view-halal-status.md) — User — This semester |
+| UC03 | [Upload Product Packaging Photo](./use-cases/UC03-upload-product-photo.md) — User — This semester |
+| UC04 | [Manage Stored Halal Assessment Results](./use-cases/UC04-manage-stored-halal-assessment-results.md) — Admin — This semester |
+| UC05 | [Manage Shopping List](./use-cases/UC05-manage-shopping-list.md) — User — This semester |
 | UC06 | Manage Uploaded Product Photos — Admin — Later phase |
 | UC07 | Manage Community Features — User — Later phase |
 | UC08 | Manage User Profile — User — Later phase |
@@ -136,37 +136,39 @@ Testing:
 
 ### 3.1 Functionality
 
-This section describes the eight use cases shown in the Use Case Diagram and their functionality.
+This section describes the eight use cases shown in the [Use Case Diagram](#22-use-case-diagram) and their functionality.
 
-**This semester**, the team will implement UC01 through UC05:
+**This semester**, the team will implement [UC01](./use-cases/UC01-search-product.md) through [UC02](./use-cases/UC02-view-halal-status.md), [UC03](./use-cases/UC03-upload-product-photo.md), [UC04](./use-cases/UC04-manage-stored-halal-assessment-results.md), and [UC05](./use-cases/UC05-manage-shopping-list.md):
 
 #### 3.1.1 UC01 — Search for a Product
 
 The user searches for a packaged food product by entering its name. The system searches the hosted product database and available external product data sources, combines matching results, and presents them to the user. When no match is found, the user can continue with photo upload.
 
-[RUP specification](./use-cases/rup/UC01-search-product.rup.md)
+[Use case specification](./use-cases/UC01-search-product.md)
 
 #### 3.1.2 UC02 — View Halal Status of a Product
 
 Once a product is available, the system checks for a stored assessment. If none exists, it normalises the available product data and runs the halal assessment pipeline. The user is shown a verdict — Halal, Haram, or Mashbooh — with a plain-language justification.
 
-[RUP specification](./use-cases/rup/UC02-view-halal-status.rup.md)
+[Use case specification](./use-cases/UC02-view-halal-status.md)
 
 #### 3.1.3 UC03 — Upload Product Packaging Photo
 
 When no matching product is found, the user can upload a product-packaging photo. The system validates the file and uses OCR and image analysis to extract and structure product information for the halal assessment pipeline.
 
-[RUP specification](./use-cases/rup/UC03-upload-product-photo.rup.md)
+[Use case specification](./use-cases/UC03-upload-product-photo.md)
 
 #### 3.1.4 UC04 — Manage Stored Halal Assessment Results
 
 An authorised Admin searches, filters, reviews, and opens stored halal assessment results. The Admin can view the associated product details, halal status, and justification.
 
-[RUP specification](./use-cases/rup/UC04-manage-stored-halal-assessment-results.rup.md)
+[Use case specification](./use-cases/UC04-manage-stored-halal-assessment-results.md)
 
 #### 3.1.5 UC05 — Manage Shopping List
 
 The user maintains a personal shopping list by saving products for future reference and removing products that are no longer needed. The list helps users retain products they intend to purchase or revisit.
+
+[Use case specification](./use-cases/UC05-manage-shopping-list.md)
 
 **Later phase** use cases are planned but are outside this semester's implementation scope:
 
