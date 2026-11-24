@@ -109,7 +109,7 @@ The technology we use is:
 
 Backend:
 - Maven and Spring boot
-- MariaDB
+- PostgreSQL
 
 Frontend:
 - React

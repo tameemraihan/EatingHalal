@@ -18,7 +18,7 @@ This file tells AI agents how to work in this repository. When the user names a 
 - `backend/src/test/resources/features/` — Cucumber feature files
 
 **Technology stack:**
-- Backend: Java 17, Spring Boot, MariaDB
+- Backend: Java 17, Spring Boot, PostgreSQL
 - Frontend: ReactJS
 - Testing: Cucumber, JUnit, RestAssured
 - CI/CD: Travis CI, Docker
@@ -169,7 +169,7 @@ Triggered by: "execute task: Backend Development"
 
 - Java 17, Spring Boot 3.x, Maven
 - RESTful API, JSON responses
-- MariaDB for persistence
+- PostgreSQL for persistence
 - Follow clean code standards: clear naming by function, no abbreviations in identifiers
 
 ### Testing conventions
