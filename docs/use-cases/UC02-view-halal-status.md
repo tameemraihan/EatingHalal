@@ -20,7 +20,7 @@
 6. [Extension Points](#6-extension-points)
    - [6.1 Assessment Result Displayed](#61-assessment-result-displayed)
 
-> Implementation status: Implemented: stored result viewing and unavailable response. Automatic new verdict generation is not implemented. See [Submission Status](../SubmissionStatus.md).
+> Implementation status: Implemented: stored result viewing and unavailable response. Automatic new verdict generation is not implemented. See [the project README](../../README.md#implementation-status).
 
 ## 1. Brief Description
 

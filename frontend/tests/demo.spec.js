@@ -25,7 +25,7 @@ test("Search, assessment, personal CRUD and admin review", async ({ page }) => {
   await page.reload();
   await expect(page.getByLabel("Quantity for Demo Oat Drink")).toHaveValue("3");
   await page.screenshot({
-    path: "../docs/assets/images/local-crud-demo.png",
+    path: "../docs/submissions/week-08/evidence/images/local-crud-demo.png",
     fullPage: true,
   });
   await page.getByRole("button", { name: "Sign out" }).click();
@@ -67,7 +67,7 @@ test("Search, assessment, personal CRUD and admin review", async ({ page }) => {
     ),
   ).toBeVisible();
   await page.screenshot({
-    path: "../docs/assets/images/local-photo-pending.png",
+    path: "test-results/local-photo-pending.png",
     fullPage: true,
   });
 });
@@ -83,7 +83,7 @@ test("Mobile layout fits the viewport", async ({ page }) => {
     ),
   ).toBeTruthy();
   await page.screenshot({
-    path: "../docs/assets/images/local-mobile-demo.png",
+    path: "../docs/submissions/week-08/evidence/images/local-mobile-demo.png",
     fullPage: true,
   });
 });

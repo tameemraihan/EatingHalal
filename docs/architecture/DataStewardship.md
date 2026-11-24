@@ -1,6 +1,6 @@
 # Data Stewardship and CRC Evidence
 
-These artifacts supplement the [architecture document](SoftwareArchitectureDocument.md). The lecture chapter proposes them as learning evidence; official assessment scope still needs confirmation.
+These artifacts supplement the [architecture document](SoftwareArchitectureDocument.md). It records the application's data responsibilities, provenance and access boundaries.
 
 ## CRC card
 
@@ -27,6 +27,6 @@ HalalAssessment is the derived product. It references one Product, records a ver
 
 ## Executable rules
 
-The [admin feature](../backend/src/test/resources/features/uc04_manage_stored_halal_assessment_results.feature) checks that a non-admin receives 403 without assessment content. The [shopping-list feature](../backend/src/test/resources/features/uc05_manage_shopping_list.feature) checks owner isolation, invalid quantities, duplicates, eligibility and CSRF denial against actual HTTP endpoints and PostgreSQL records. A quantity update by another user receives 404 and leaves the original entry unchanged.
+The [admin feature](../../backend/src/test/resources/features/uc04_manage_stored_halal_assessment_results.feature) checks that a non-admin receives 403 without assessment content. The [shopping-list feature](../../backend/src/test/resources/features/uc05_manage_shopping_list.feature) checks owner isolation, invalid quantities, duplicates, eligibility and CSRF denial against actual HTTP endpoints and PostgreSQL records. A quantity update by another user receives 404 and leaves the original entry unchanged.
 
 These are application authorization checks, not a claim of complete legal compliance or institutional policy approval. Deletion propagation, production backups, audit retention and external-provider data handling are not implemented.

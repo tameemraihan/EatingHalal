@@ -67,4 +67,4 @@ npm run test:e2e
 
 Browser checks use installed Google Chrome and produce screenshots/videos. Install Chrome or adjust the configured Playwright channel for your system.
 
-Validate documentation with python3 scripts/check-documentation.py. Generate UML sources with python3 scripts/generate-diagrams.py. Render sources with PlantUML (headless Java; layout uses Smetana and does not require Graphviz). The supplied PNGs are ready for the architecture document. The [recording script](../scripts/record-cucumber.mjs) captures a real running Maven/Cucumber process; it requires the frontend dependencies and video encoder. Its default Maven command is the project's wrapper.
+Validate documentation with python3 scripts/check-documentation.py. Generate UML sources with python3 scripts/generate-diagrams.py. Render sources with PlantUML (headless Java; layout uses Smetana and does not require Graphviz). The supplied PNGs are ready for the architecture document. The [recording script](../../scripts/record-cucumber.mjs) captures a real running Maven/Cucumber process; it requires the frontend dependencies and video encoder. Its default Maven command is the project's wrapper.

@@ -1,11 +1,11 @@
 import { chromium } from "../frontend/node_modules/playwright/index.mjs";
 import { spawn } from "node:child_process";
-import { mkdir, copyFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const evidence = path.join(root, "docs/evidence");
+const evidence = path.join(root, "docs/submissions/week-08/evidence");
 await mkdir(evidence, { recursive: true });
 const browser = await chromium.launch({ channel: "chrome" });
 const context = await browser.newContext({
@@ -59,24 +59,16 @@ await page.evaluate(
 );
 await page.waitForTimeout(2000);
 await page.screenshot({
-  path: path.join(root, "docs/assets/images/cucumber-results.png"),
+  path: path.join(root, "backend/target/cucumber-results.png"),
   fullPage: true,
 });
 const video = page.video();
 await context.close();
 await video.saveAs(path.join(evidence, "cucumber-running.webm"));
 await browser.close();
-await writeFile(path.join(evidence, "cucumber-output.txt"), output.split("\n").map(line => line.trimEnd()).join("\n"));
-await copyFile(
-  path.join(root, "backend/target/cucumber-report.html"),
-  path.join(evidence, "cucumber-report.html"),
-);
-await copyFile(
-  path.join(root, "backend/target/cucumber-report.json"),
-  path.join(evidence, "cucumber-report.json"),
-);
+await writeFile(path.join(root, "backend/target/cucumber-output.txt"), output);
 if (exitCode !== 0)
   throw new Error(
     "Cucumber failed; recording saved, but this is not passing evidence.",
   );
-console.log("Captured the real Cucumber run, report and video.");
+console.log("Captured the Cucumber video; full generated reports remain under backend/target.");

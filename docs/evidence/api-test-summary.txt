@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.eatinghalal.CucumberTest
--------------------------------------------------------------------------------
-Tests run: 26, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 9.162 s -- in com.eatinghalal.CucumberTest

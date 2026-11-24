@@ -129,7 +129,7 @@ Testing:
 -JUnit
 -RestAssured
 
-> Implementation coverage and unimplemented requirements are tracked in [Submission Status](SubmissionStatus.md). Tool names above describe configured or planned tools, not completed deployment evidence.
+> Implementation coverage and unimplemented requirements are tracked in [the project README](../README.md#implementation-status). Tool names above describe configured or planned tools, not completed deployment evidence.
 
 ## 3. Specific Requirements
 

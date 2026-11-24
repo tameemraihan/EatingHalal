@@ -19,7 +19,7 @@
 6. [Extension Points](#6-extension-points)
    - [6.1 Stored Assessment Displayed](#61-stored-assessment-displayed)
 
-> Implementation status: Implemented: admin-only search, listing and detail review; read-only as specified. See [Submission Status](../SubmissionStatus.md).
+> Implementation status: Implemented: admin-only search, listing and detail review; read-only as specified. See [the project README](../../README.md#implementation-status).
 
 ## 1. Brief Description
 

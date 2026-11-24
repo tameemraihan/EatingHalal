@@ -25,4 +25,4 @@ frontend/test-results/
 frontend/playwright-report/
 backend/src/main/resources/static/
 
-docs/evidence/.recording/
+docs/submissions/*/evidence/.recording/

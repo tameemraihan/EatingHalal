@@ -11,7 +11,7 @@
 
 The assistant reviewed the repository, board and supplied PDFs. It identified that the original Cucumber steps changed booleans/maps rather than exercising application behavior. The implementation adds actual persistence, controllers, service rules and React screens. Editable quantity supplies the previously missing Update operation for shopping-list CRUD; the corresponding specification, activity diagram and tests are updated.
 
-The assistant proposed local-first product lookup, a bounded Open Food Facts adapter, server-side session/ownership checks and a versioned assessment evidence model. Those are explicit implementation decisions, not invented claims about earlier team work. Verification uses a real PostgreSQL server, RestAssured/Cucumber, code/migration-derived diagrams and browser checks. Exact evidence is in [Submission Status](SubmissionStatus.md).
+The assistant proposed local-first product lookup, a bounded Open Food Facts adapter, server-side session/ownership checks and a versioned assessment evidence model. Those are explicit implementation decisions, not invented claims about earlier team work. Verification uses a real PostgreSQL server, RestAssured/Cucumber, code/migration-derived diagrams and browser checks. Exact evidence is in [Submission Status](README.md).
 
 ## Limits and team review
 
