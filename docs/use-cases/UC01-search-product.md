@@ -18,9 +18,11 @@
 - [6. Extension Points](#6-extension-points)
   - [6.1 Product Search Completed](#61-product-search-completed)
 
+> Implementation status: Implemented: local-first search and optional external fallback. Packaging-panel navigation exists; its Cucumber scenario remains pending and browser-tested separately. See [Submission Status](../SubmissionStatus.md).
+
 ## 1. Brief Description
 
-A **User** searches for a packaged food product by entering its name. The system searches the hosted product database and available external product data sources, combines the results, and presents any matching products. When no match is found, the user can start [Upload Product Packaging Photo (UC03)](UC03-upload-product-photo.md) or refine the search.
+A **User** searches for a packaged food product by entering its name. The system searches the hosted product database first and queries an enabled external product data source when there is no local match, then presents matching products. When no match is found, the user can start [Upload Product Packaging Photo (UC03)](UC03-upload-product-photo.md) or refine the search.
 
 **Primary actor:** User<br>
 **Supporting actors:** External product data sources<br>
@@ -32,8 +34,8 @@ A **User** searches for a packaged food product by entering its name. The system
 
 1. The user enters a product name.
 2. The system searches the hosted product database for products matching the entered name.
-3. The system searches the available external product data sources for products matching the entered name.
-4. The system combines and retrieves the matching products.
+3. If the hosted database has no match, the system queries an enabled external product data source, respecting its rate limits.
+4. The system retrieves local matches or persists and retrieves usable external results with source attribution.
 5. The system determines whether any matching products were found.
 6. The system presents the matching products to the user.
 7. The use case ends.
@@ -72,7 +74,7 @@ The product-search and search-results screens shall be understandable without pr
 
 ### 3.4 Interfaces and Availability
 
-The web application communicates with its backend and external data sources using the Hypertext Transfer Protocol (HTTP) and Hypertext Transfer Protocol Secure (HTTPS). The system shall not present unavailable external data as a confirmed product match.
+The web application communicates with its backend and external data sources using the Hypertext Transfer Protocol (HTTP) and Hypertext Transfer Protocol Secure (HTTPS). The system shall not present unavailable external data as a confirmed product match. Open Food Facts is the initial external adapter; it can be disabled for local demos. A source outage or rate limit shall be reported without inventing results.
 
 ## 4. Preconditions
 

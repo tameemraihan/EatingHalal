@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/eatinghalal}
+    username: ${DATABASE_USER:eatinghalal}
+    password: ${DATABASE_PASSWORD:}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+eatinghalal:
+  demo: false
+  open-food-facts:
+    enabled: ${OFF_ENABLED:false}
+    base-url: https://world.openfoodfacts.org
+    user-agent: ${OFF_USER_AGENT:EatingHalalUniversityDemo/1.0 (https://github.com/tameemraihan/EatingHalal)}

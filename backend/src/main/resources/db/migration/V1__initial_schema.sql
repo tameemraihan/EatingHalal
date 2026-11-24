@@ -1,0 +1,6 @@
+CREATE TABLE user_account (id UUID PRIMARY KEY, username VARCHAR(100) NOT NULL UNIQUE, password_hash VARCHAR(100) NOT NULL, role VARCHAR(20) NOT NULL CHECK (role IN ('USER','ADMIN')));
+CREATE TABLE product (id UUID PRIMARY KEY, barcode VARCHAR(64) UNIQUE, name VARCHAR(300) NOT NULL, brand VARCHAR(300) NOT NULL, package_description VARCHAR(300) NOT NULL, ingredients TEXT NOT NULL, labels TEXT NOT NULL, source VARCHAR(80) NOT NULL, source_url TEXT NOT NULL, retrieved_at TIMESTAMP WITH TIME ZONE NOT NULL);
+CREATE TABLE halal_assessment (id UUID PRIMARY KEY, product_id UUID NOT NULL REFERENCES product(id), version INTEGER NOT NULL CHECK (version > 0), verdict VARCHAR(20) NOT NULL CHECK (verdict IN ('Halal','Haram','Mashbooh')), justification TEXT NOT NULL, input_snapshot TEXT NOT NULL, evaluator_version VARCHAR(100) NOT NULL, assessed_at TIMESTAMP WITH TIME ZONE NOT NULL, UNIQUE(product_id,version));
+CREATE TABLE shopping_list_entry (id UUID PRIMARY KEY, owner_id UUID NOT NULL REFERENCES user_account(id), product_id UUID NOT NULL REFERENCES product(id), quantity INTEGER NOT NULL CHECK (quantity BETWEEN 1 AND 999), added_at TIMESTAMP WITH TIME ZONE NOT NULL, UNIQUE(owner_id,product_id));
+CREATE INDEX assessment_product_version ON halal_assessment(product_id,version DESC);
+CREATE INDEX list_owner_added ON shopping_list_entry(owner_id,added_at);

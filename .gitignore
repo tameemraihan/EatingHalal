@@ -17,3 +17,12 @@ Thumbs.db
 # Project-specific
 /archive
 /halal_assessment_chat_export.md
+
+.env
+**/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+backend/src/main/resources/static/
+
+docs/evidence/.recording/

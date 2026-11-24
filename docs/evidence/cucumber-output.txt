@@ -1,0 +1,352 @@
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< com.eatinghalal:backend >-----------------------
+[INFO] Building eating-halal-demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO]
+[INFO] --- compiler:3.11.0:compile (default-compile) @ backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ backend ---
+[INFO] Copying 5 resources from src/test/resources to target/test-classes
+[INFO]
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ backend ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 5 source files with javac [debug release 17] to target/test-classes
+[INFO]
+[INFO] --- surefire:3.1.2:test (default-test) @ backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.eatinghalal.CucumberTest
+23:25:56.141 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:25:56.172 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-11-24T23:25:56.283+01:00  INFO 83003 --- [           main] c.e.steps.HalalAssessmentSteps           : Starting HalalAssessmentSteps using Java 25.0.2 with PID 83003 (started by I767747 in /private/tmp/eatinghalal-eh60/backend)
+2026-11-24T23:25:56.284+01:00  INFO 83003 --- [           main] c.e.steps.HalalAssessmentSteps           : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T23:25:56.460+01:00  INFO 83003 --- [           main] i.z.t.d.p.embedded.EmbeddedPostgres      : Detected a Darwin aarch64 system
+2026-11-24T23:25:56.461+01:00  INFO 83003 --- [           main] .z.t.d.p.e.DefaultPostgresBinaryResolver : Detected distribution: 'Unknown'
+2026-11-24T23:25:56.462+01:00  WARN 83003 --- [           main] .z.t.d.p.e.DefaultPostgresBinaryResolver : No native binaries supporting ARM architecture found. Trying to use binaries for x64 architecture instead: 'postgres-darwin-x86_64.txz'. Make sure you have enabled emulation for this purpose. Note that performance may be degraded.
+2026-11-24T23:25:56.509+01:00  INFO 83003 --- [           main] i.z.t.d.p.embedded.EmbeddedPostgres      : Postgres binaries at /var/folders/rh/xh26l6qj6yjb1k46w6wl7b1h0000gn/T/embedded-pg/PG-8d4290f2a0ea524e9655c020387bc295
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : The files belonging to this database system will be owned by user "I767747".
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : This user must also own the server process.
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      :
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : The database cluster will be initialized with locale "C.UTF-8".
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : The default text search configuration will be set to "english".
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      :
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : Data page checksums are disabled.
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      :
+2026-11-24T23:25:56.542+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : fixing permissions on existing directory /var/folders/rh/xh26l6qj6yjb1k46w6wl7b1h0000gn/T/epg11336380724553913636 ... ok
+2026-11-24T23:25:56.546+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : creating subdirectories ... ok
+2026-11-24T23:25:56.546+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : selecting dynamic shared memory implementation ... posix
+2026-11-24T23:25:56.570+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : selecting default max_connections ... 100
+2026-11-24T23:25:56.594+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : selecting default shared_buffers ... 128MB
+2026-11-24T23:25:56.597+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : selecting default time zone ... Europe/Berlin
+2026-11-24T23:25:56.600+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : creating configuration files ... ok
+2026-11-24T23:25:56.818+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : running bootstrap script ... ok
+2026-11-24T23:25:57.329+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : performing post-bootstrap initialization ... ok
+2026-11-24T23:25:57.445+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : syncing data to disk ... ok
+2026-11-24T23:25:57.445+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      :
+2026-11-24T23:25:57.445+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      : Success. You can now start the database server using:
+2026-11-24T23:25:57.445+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      :
+2026-11-24T23:25:57.445+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      :     /var/folders/rh/xh26l6qj6yjb1k46w6wl7b1h0000gn/T/embedded-pg/PG-8d4290f2a0ea524e9655c020387bc295/bin/pg_ctl -D /var/folders/rh/xh26l6qj6yjb1k46w6wl7b1h0000gn/T/epg11336380724553913636 -l logfile start
+2026-11-24T23:25:57.445+01:00  INFO 83003 --- [itdb:pid(83004)] i.z.t.d.p.embedded.EmbeddedPostgres      :
+2026-11-24T23:25:57.445+01:00  INFO 83003 --- [           main] i.z.t.d.p.embedded.EmbeddedPostgres      : 67116c1b-5ca3-4ba7-8273-f6fff6bf16c0 initdb completed in 00:00:00.935
+2026-11-24T23:25:57.452+01:00  INFO 83003 --- [           main] i.z.t.d.p.embedded.EmbeddedPostgres      : 67116c1b-5ca3-4ba7-8273-f6fff6bf16c0 postmaster started as Process[pid=83019, exitValue="not exited"] on port 64717.  Waiting up to PT10S for server startup to finish.
+2026-11-24T23:25:57.489+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      : waiting for server to start....2026-11-24 23:25:57.488 CET [83021] LOG:  starting PostgreSQL 14.15 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.4), 64-bit
+2026-11-24T23:25:57.490+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      : 2026-11-24 23:25:57.490 CET [83021] LOG:  listening on IPv6 address "::1", port 64717
+2026-11-24T23:25:57.490+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      : 2026-11-24 23:25:57.490 CET [83021] LOG:  listening on IPv4 address "127.0.0.1", port 64717
+2026-11-24T23:25:57.492+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      : 2026-11-24 23:25:57.492 CET [83021] LOG:  listening on Unix socket "/tmp/.s.PGSQL.64717"
+2026-11-24T23:25:57.496+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      : 2026-11-24 23:25:57.496 CET [83022] LOG:  database system was shut down at 2026-11-24 23:25:57 CET
+2026-11-24T23:25:57.502+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      : 2026-11-24 23:25:57.502 CET [83021] LOG:  database system is ready to accept connections
+2026-11-24T23:25:57.573+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      :  done
+2026-11-24T23:25:57.573+01:00  INFO 83003 --- [gres:pid(83019)] i.z.t.d.p.embedded.EmbeddedPostgres      : server started
+2026-11-24T23:25:57.612+01:00  INFO 83003 --- [           main] i.z.t.d.p.embedded.EmbeddedPostgres      : 67116c1b-5ca3-4ba7-8273-f6fff6bf16c0 postmaster startup finished in 00:00:00.164
+2026-11-24T23:25:57.701+01:00  INFO 83003 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T23:25:57.721+01:00  INFO 83003 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/private/tmp/eatinghalal-m2/org/apache/tomcat/embed/tomcat-embed-core/10.1.19/tomcat-embed-core-10.1.19.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-11-24T23:25:57.900+01:00  INFO 83003 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-11-24T23:25:57.904+01:00  INFO 83003 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-24T23:25:57.904+01:00  INFO 83003 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-11-24T23:25:57.920+01:00  INFO 83003 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-24T23:25:57.921+01:00  INFO 83003 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1574 ms
+2026-11-24T23:25:57.957+01:00  INFO 83003 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-24T23:25:57.974+01:00  INFO 83003 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7b2e931
+2026-11-24T23:25:57.975+01:00  INFO 83003 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-24T23:25:58.000+01:00  INFO 83003 --- [           main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-11-24T23:25:58.001+01:00  INFO 83003 --- [           main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-11-24T23:25:58.001+01:00  INFO 83003 --- [           main] o.f.c.internal.license.VersionPrinter    :
+2026-11-24T23:25:58.006+01:00  INFO 83003 --- [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:64717/postgres (PostgreSQL 14.15)
+2026-11-24T23:25:58.026+01:00  INFO 83003 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-11-24T23:25:58.027+01:00  INFO 83003 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.006s)
+2026-11-24T23:25:58.034+01:00  INFO 83003 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-11-24T23:25:58.063+01:00  INFO 83003 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-11-24T23:25:58.067+01:00  INFO 83003 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - initial schema"
+2026-11-24T23:25:58.090+01:00  INFO 83003 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.019s)
+2026-11-24T23:25:58.115+01:00  INFO 83003 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-24T23:25:58.131+01:00  INFO 83003 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-11-24T23:25:58.141+01:00  INFO 83003 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-24T23:25:58.202+01:00  INFO 83003 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T23:25:58.490+01:00  INFO 83003 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T23:25:58.503+01:00  INFO 83003 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T23:25:58.699+01:00  INFO 83003 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-11-24T23:25:58.757+01:00  INFO 83003 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1bff4cb9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c521a79, org.springframework.security.web.context.SecurityContextHolderFilter@3c0b9643, org.springframework.security.web.header.HeaderWriterFilter@36afd06f, org.springframework.web.filter.CorsFilter@6b0f50d8, org.springframework.security.web.csrf.CsrfFilter@388b9799, org.springframework.security.web.authentication.logout.LogoutFilter@78652c15, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@15c0a8ad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1507bc3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@202ed88d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36b4cbb8, org.springframework.security.web.access.ExceptionTranslationFilter@2b39e77d, org.springframework.security.web.access.intercept.AuthorizationFilter@56540a58]
+2026-11-24T23:25:58.834+01:00  INFO 83003 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 64735 (http) with context path ''
+2026-11-24T23:25:58.837+01:00  INFO 83003 --- [           main] c.e.steps.HalalAssessmentSteps           : Started HalalAssessmentSteps in 2.635 seconds (process running for 3.094)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/private/tmp/eatinghalal-m2/net/bytebuddy/byte-buddy-agent/1.14.12/byte-buddy-agent-1.14.12.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+
+@uc01
+Scenario: Display matching products from available product sources                     # features/uc01_search_product.feature:11
+2026-11-24T23:25:59.562+01:00  INFO 83003 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-24T23:25:59.562+01:00  INFO 83003 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-24T23:25:59.562+01:00  INFO 83003 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+  Given the EatingHalal application is available                                       # com.eatinghalal.steps.UseCaseSteps.available()
+  Given the hosted database contains a product named "Haribo Goldbears"                # com.eatinghalal.steps.UseCaseSteps.hosted(java.lang.String)
+  And an available external product source contains a product named "Haribo Goldbears" # com.eatinghalal.steps.UseCaseSteps.external(java.lang.String)
+  When the user searches for "Haribo Goldbears"                                        # com.eatinghalal.steps.UseCaseSteps.search(java.lang.String)
+  Then the system displays the matching products                                       # com.eatinghalal.steps.UseCaseSteps.matchingProducts()
+  And each result includes its product name                                            # com.eatinghalal.steps.UseCaseSteps.names()
+  And each result includes available manufacturer or package information               # com.eatinghalal.steps.UseCaseSteps.details()
+2026-11-24T23:25:59.808+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:25:59.808+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc01
+Scenario: Offer photo upload when no product matches                            # features/uc01_search_product.feature:19
+  Given the EatingHalal application is available                                # com.eatinghalal.steps.UseCaseSteps.available()
+  Given no available product source contains a product matching "Unknown Snack" # com.eatinghalal.steps.UseCaseSteps.missing(java.lang.String)
+  When the user searches for "Unknown Snack"                                    # com.eatinghalal.steps.UseCaseSteps.search(java.lang.String)
+  Then the system informs the user that no matching product was found           # com.eatinghalal.steps.UseCaseSteps.noProducts()
+  And the system offers the user the option to upload a product packaging photo # com.eatinghalal.steps.UseCaseSteps.offersPhoto()
+2026-11-24T23:26:00.046+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:00.046+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc01
+Scenario: Import an external result when no local product matches                         # features/uc01_search_product.feature:33
+  Given the EatingHalal application is available                                          # com.eatinghalal.steps.UseCaseSteps.available()
+  Given an available external product source contains a product named "External Only Oat" # com.eatinghalal.steps.UseCaseSteps.external(java.lang.String)
+  When the user searches for "External Only Oat"                                          # com.eatinghalal.steps.UseCaseSteps.search(java.lang.String)
+  Then the system displays the matching products                                          # com.eatinghalal.steps.UseCaseSteps.matchingProducts()
+  And the imported product is persisted with its source                                   # com.eatinghalal.steps.UseCaseSteps.imported()
+2026-11-24T23:26:00.257+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:00.258+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc02
+Scenario: Display a stored halal assessment                             # features/uc02_view_halal_status.feature:11
+  Given the EatingHalal application is available                        # com.eatinghalal.steps.UseCaseSteps.available()
+  Given the user has selected "Haribo Goldbears"                        # com.eatinghalal.steps.UseCaseSteps.selected(java.lang.String)
+  And a stored halal assessment exists for "Haribo Goldbears"           # com.eatinghalal.steps.UseCaseSteps.stored(java.lang.String)
+  When the user requests the halal status                               # com.eatinghalal.steps.UseCaseSteps.status()
+  Then the system displays the product details                          # com.eatinghalal.steps.UseCaseSteps.productDetails()
+  And the system displays the halal status                              # com.eatinghalal.steps.UseCaseSteps.verdict()
+  And the system displays a plain-language justification for the status # com.eatinghalal.steps.UseCaseSteps.justification()
+2026-11-24T23:26:00.534+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:00.534+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc02
+Scenario: Do not present an unsupported assessment as confirmed                                   # features/uc02_view_halal_status.feature:29
+  Given the EatingHalal application is available                                                  # com.eatinghalal.steps.UseCaseSteps.available()
+  Given the user has selected "Incomplete Product"                                                # com.eatinghalal.steps.UseCaseSteps.selected(java.lang.String)
+  And no stored halal assessment exists for "Incomplete Product"                                  # com.eatinghalal.steps.UseCaseSteps.noStored(java.lang.String)
+  And sufficient reliable product information cannot be retrieved                                 # com.eatinghalal.steps.UseCaseSteps.insufficient()
+  When the user requests the halal status                                                         # com.eatinghalal.steps.UseCaseSteps.status()
+  Then the system informs the user that a confirmed halal assessment cannot currently be produced # com.eatinghalal.steps.UseCaseSteps.unavailable()
+  And the system does not display an unsupported assessment as a confirmed result                 # com.eatinghalal.steps.UseCaseSteps.notConfirmed()
+2026-11-24T23:26:00.742+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:00.742+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc04
+Scenario: View a matching stored assessment                     # features/uc04_manage_stored_halal_assessment_results.feature:11
+  Given the assessment-results database is available            # com.eatinghalal.steps.UseCaseSteps.assessmentDatabase()
+  Given an authorised admin opens the stored assessments        # com.eatinghalal.steps.UseCaseSteps.admin()
+  And stored halal assessments are available                    # com.eatinghalal.steps.UseCaseSteps.storedAvailable()
+  When the admin searches for assessments matching "Haribo"     # com.eatinghalal.steps.UseCaseSteps.adminSearch(java.lang.String)
+  And the admin selects a matching stored assessment            # com.eatinghalal.steps.UseCaseSteps.adminSelect()
+  Then the system displays the selected product details         # com.eatinghalal.steps.UseCaseSteps.selectedDetails()
+  And the system displays the selected halal status             # com.eatinghalal.steps.UseCaseSteps.selectedStatus()
+  And the system displays the selected assessment justification # com.eatinghalal.steps.UseCaseSteps.selectedJustification()
+2026-11-24T23:26:01.107+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:01.108+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc04
+Scenario: Show no results for unmatched search criteria              # features/uc04_manage_stored_halal_assessment_results.feature:20
+  Given the assessment-results database is available                 # com.eatinghalal.steps.UseCaseSteps.assessmentDatabase()
+  Given an authorised admin opens the stored assessments             # com.eatinghalal.steps.UseCaseSteps.admin()
+  And no stored assessment matches "Unknown Product"                 # com.eatinghalal.steps.UseCaseSteps.noAssessment(java.lang.String)
+  When the admin searches for assessments matching "Unknown Product" # com.eatinghalal.steps.UseCaseSteps.adminSearch(java.lang.String)
+  Then the system displays a no-results message                      # com.eatinghalal.steps.UseCaseSteps.noResults()
+2026-11-24T23:26:01.374+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:01.374+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc04
+Scenario: Refine a stored-assessment search                                   # features/uc04_manage_stored_halal_assessment_results.feature:26
+  Given the assessment-results database is available                          # com.eatinghalal.steps.UseCaseSteps.assessmentDatabase()
+  Given an authorised admin has received a no-results message for "Goldbears" # com.eatinghalal.steps.UseCaseSteps.previousNoResults(java.lang.String)
+  And a stored assessment matches "Haribo Goldbears"                          # com.eatinghalal.steps.UseCaseSteps.matchingAssessment(java.lang.String)
+  When the admin refines the search to "Haribo Goldbears"                     # com.eatinghalal.steps.UseCaseSteps.refine(java.lang.String)
+  Then the system displays the matching assessments                           # com.eatinghalal.steps.UseCaseSteps.matchingAssessments()
+2026-11-24T23:26:01.652+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:01.652+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc04
+Scenario: Prevent unauthorised access to stored assessments          # features/uc04_manage_stored_halal_assessment_results.feature:32
+  Given the assessment-results database is available                 # com.eatinghalal.steps.UseCaseSteps.assessmentDatabase()
+  Given an unauthorised user attempts to open the stored assessments # com.eatinghalal.steps.UseCaseSteps.ordinaryUser()
+  When the user requests the stored assessments                      # com.eatinghalal.steps.UseCaseSteps.adminRequest()
+  Then the system denies access to the stored assessments            # com.eatinghalal.steps.UseCaseSteps.denies()
+2026-11-24T23:26:01.916+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:01.916+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: View a populated shopping list                                         # features/uc05_manage_shopping_list.feature:12
+  Given the EatingHalal application is available                                 # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                    # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list contains "Haribo Goldbears" with status "Halal" # com.eatinghalal.steps.UseCaseSteps.contains(java.lang.String,java.lang.String)
+  When the user opens the shopping list                                          # com.eatinghalal.steps.UseCaseSteps.opensList()
+  Then the system displays the shopping list                                     # com.eatinghalal.steps.UseCaseSteps.displaysList()
+  And the shopping list includes "Haribo Goldbears"                              # com.eatinghalal.steps.UseCaseSteps.includes(java.lang.String)
+  And each entry includes the product name and halal status                      # com.eatinghalal.steps.UseCaseSteps.entryDetails()
+2026-11-24T23:26:02.204+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:02.204+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: View an empty shopping list                              # features/uc05_manage_shopping_list.feature:19
+  Given the EatingHalal application is available                   # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                      # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list is empty                          # com.eatinghalal.steps.UseCaseSteps.empty()
+  When the user opens the shopping list                            # com.eatinghalal.steps.UseCaseSteps.opensList()
+  Then the system informs the user that the shopping list is empty # com.eatinghalal.steps.UseCaseSteps.listEmpty()
+2026-11-24T23:26:02.476+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:02.476+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Add a product to the shopping list                            # features/uc05_manage_shopping_list.feature:24
+  Given the EatingHalal application is available                        # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                           # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the halal assessment result for "Haribo Goldbears" is displayed # com.eatinghalal.steps.UseCaseSteps.displayed(java.lang.String)
+  And "Haribo Goldbears" is not on the user's shopping list             # com.eatinghalal.steps.UseCaseSteps.notListed(java.lang.String)
+  When the user adds "Haribo Goldbears" to the shopping list            # com.eatinghalal.steps.UseCaseSteps.adds(java.lang.String)
+  Then the system saves "Haribo Goldbears" to the user's shopping list  # com.eatinghalal.steps.UseCaseSteps.saved(java.lang.String)
+  And the system confirms that "Haribo Goldbears" has been added        # com.eatinghalal.steps.UseCaseSteps.added(java.lang.String)
+2026-11-24T23:26:02.821+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:02.821+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Prevent duplicate entries on the shopping list                                   # features/uc05_manage_shopping_list.feature:31
+  Given the EatingHalal application is available                                           # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                              # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the halal assessment result for "Haribo Goldbears" is displayed                    # com.eatinghalal.steps.UseCaseSteps.displayed(java.lang.String)
+  And "Haribo Goldbears" is already on the user's shopping list                            # com.eatinghalal.steps.UseCaseSteps.alreadyListed(java.lang.String)
+  When the user adds "Haribo Goldbears" to the shopping list                               # com.eatinghalal.steps.UseCaseSteps.adds(java.lang.String)
+  Then the system informs the user that "Haribo Goldbears" is already on the shopping list # com.eatinghalal.steps.UseCaseSteps.duplicate(java.lang.String)
+  And the system does not add a duplicate entry                                            # com.eatinghalal.steps.UseCaseSteps.noDuplicate()
+2026-11-24T23:26:03.117+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:03.117+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Remove a product from the shopping list                                # features/uc05_manage_shopping_list.feature:38
+  Given the EatingHalal application is available                                 # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                    # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list contains "Haribo Goldbears" with status "Halal" # com.eatinghalal.steps.UseCaseSteps.contains(java.lang.String,java.lang.String)
+  When the user opens the shopping list                                          # com.eatinghalal.steps.UseCaseSteps.opensList()
+  And the user removes "Haribo Goldbears" from the shopping list                 # com.eatinghalal.steps.UseCaseSteps.removes(java.lang.String)
+  Then the system removes "Haribo Goldbears" from the user's shopping list       # com.eatinghalal.steps.UseCaseSteps.removed(java.lang.String)
+  And the system confirms that "Haribo Goldbears" has been removed               # com.eatinghalal.steps.UseCaseSteps.removedConfirmation(java.lang.String)
+  And the system displays the updated shopping list                              # com.eatinghalal.steps.UseCaseSteps.updatedList()
+2026-11-24T23:26:03.400+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:03.401+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Clear the entire shopping list                                         # features/uc05_manage_shopping_list.feature:46
+  Given the EatingHalal application is available                                 # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                    # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list contains "Haribo Goldbears" with status "Halal" # com.eatinghalal.steps.UseCaseSteps.contains(java.lang.String,java.lang.String)
+  When the user opens the shopping list                                          # com.eatinghalal.steps.UseCaseSteps.opensList()
+  And the user clears the shopping list                                          # com.eatinghalal.steps.UseCaseSteps.clears()
+  Then the system removes all products from the user's shopping list             # com.eatinghalal.steps.UseCaseSteps.cleared()
+  And the system confirms that the shopping list has been cleared                # com.eatinghalal.steps.UseCaseSteps.clearedConfirmation()
+  And the system informs the user that the shopping list is empty                # com.eatinghalal.steps.UseCaseSteps.listEmpty()
+2026-11-24T23:26:03.707+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:03.707+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Update a saved quantity                                                   # features/uc05_manage_shopping_list.feature:55
+  Given the EatingHalal application is available                                    # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                       # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal" # com.eatinghalal.steps.UseCaseSteps.contains(java.lang.String,java.lang.String)
+  When the user changes the saved quantity to 3                                     # com.eatinghalal.steps.UseCaseSteps.quantity(int)
+  Then the persisted quantity is 3                                                  # com.eatinghalal.steps.UseCaseSteps.persistedQuantity(int)
+2026-11-24T23:26:03.991+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:03.992+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Reject an invalid quantity                                                # features/uc05_manage_shopping_list.feature:60
+  Given the EatingHalal application is available                                    # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                       # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal" # com.eatinghalal.steps.UseCaseSteps.contains(java.lang.String,java.lang.String)
+  When the user changes the saved quantity to 0                                     # com.eatinghalal.steps.UseCaseSteps.quantity(int)
+  Then the quantity change is rejected                                              # com.eatinghalal.steps.UseCaseSteps.rejectedQuantity()
+2026-11-24T23:26:04.259+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:04.259+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: A second user cannot update another user's list                           # features/uc05_manage_shopping_list.feature:65
+  Given the EatingHalal application is available                                    # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                       # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal" # com.eatinghalal.steps.UseCaseSteps.contains(java.lang.String,java.lang.String)
+  When another signed-in user requests the first user's shopping-list entry         # com.eatinghalal.steps.UseCaseSteps.crossUser()
+  Then the entry is inaccessible and remains unchanged                              # com.eatinghalal.steps.UseCaseSteps.ownership()
+2026-11-24T23:26:04.601+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:04.602+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Do not save a product with a Haram assessment  # features/uc05_manage_shopping_list.feature:70
+  Given the EatingHalal application is available         # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available            # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the selected product has only a Haram assessment # com.eatinghalal.steps.UseCaseSteps.haram()
+  When the user tries to save the selected product       # com.eatinghalal.steps.UseCaseSteps.saveSelected()
+  Then the ineligible product is not saved               # com.eatinghalal.steps.UseCaseSteps.ineligible()
+2026-11-24T23:26:04.868+01:00  INFO 83003 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.eatinghalal.steps.HalalAssessmentSteps]: HalalAssessmentSteps does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T23:26:04.869+01:00  INFO 83003 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.eatinghalal.EatingHalalDemoApplication for test class com.eatinghalal.steps.HalalAssessmentSteps
+
+@uc05
+Scenario: Reject a mutation without a CSRF token                                    # features/uc05_manage_shopping_list.feature:75
+  Given the EatingHalal application is available                                    # com.eatinghalal.steps.UseCaseSteps.available()
+  And the shopping list database is available                                       # com.eatinghalal.steps.UseCaseSteps.listDatabase()
+  Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal" # com.eatinghalal.steps.UseCaseSteps.contains(java.lang.String,java.lang.String)
+  When the user submits a quantity change without a CSRF token                      # com.eatinghalal.steps.UseCaseSteps.withoutCsrf()
+  Then the CSRF check rejects the change                                            # com.eatinghalal.steps.UseCaseSteps.csrfRejected()
+[WARNING] Tests run: 26, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 9.162 s -- in com.eatinghalal.CucumberTest
+[INFO]
+[INFO] Results:
+[INFO]
+[WARNING] Tests run: 26, Failures: 0, Errors: 0, Skipped: 6
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.847 s
+[INFO] Finished at: 2026-11-24T23:26:17+01:00
+[INFO] ------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-@startuml UC05_Manage_Shopping_List_Activity
+@startuml
 
 title Manage Shopping List
 
@@ -37,6 +37,17 @@ fork
       :Confirm removal to user;
       :Display updated shopping list;
       stop
+    else if (Action?) then (Change quantity)
+      :Enter quantity from 1 to 999;
+      |System|
+      :Check authenticated ownership;
+      if (Valid quantity and own entry?) then (yes)
+        :Persist changed quantity;
+        :Confirm and show updated list;
+      else (no)
+        :Reject without changing stored data;
+      endif
+      stop
     else if (Action?) then (Clear list)
       |System|
       :Remove all products
@@ -59,6 +70,8 @@ fork again
   to shopping list;
 
   |System|
+  :Verify current Halal assessment
+and authenticated user;
   if (Product already on list?) then (yes)
     :Inform user product is
     already on shopping list;

@@ -15,6 +15,8 @@ This directory contains the use-case specifications for EatingHalal. Each file c
 | UC07 | Manage Community Features | Later phase |
 | UC08 | Manage User Profile | Later phase |
 
+Implementation coverage and explicitly pending flows are tracked in [Submission Status](../SubmissionStatus.md).
+
 ## Naming Convention
 
 Files follow the pattern:

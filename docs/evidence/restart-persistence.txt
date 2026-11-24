@@ -1,0 +1,2 @@
+PASS: the same shopping-list entry and quantity 7 survived a full application/PostgreSQL restart.
+Checked using scripts/check-restart-persistence.mjs create/check and the same persistent data directory.

@@ -1,3 +1,4 @@
+# Product examples and verdicts below are synthetic test fixtures, not real certifications.
 @uc01
 Feature: Search for a product
   As a user
@@ -21,8 +22,16 @@ Feature: Search for a product
     Then the system informs the user that no matching product was found
     And the system offers the user the option to upload a product packaging photo
 
+  @pending_implementation
   Scenario: Start product photo upload after an unsuccessful search
     Given no available product source contains a product matching "Unknown Snack"
     When the user searches for "Unknown Snack"
     And the user chooses to upload a product packaging photo
     Then the product packaging photo upload flow is started
+
+
+  Scenario: Import an external result when no local product matches
+    Given an available external product source contains a product named "External Only Oat"
+    When the user searches for "External Only Oat"
+    Then the system displays the matching products
+    And the imported product is persisted with its source

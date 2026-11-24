@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap");
+:root {
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: #19362b;
+  background: #f6f7f1;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px max(24px, calc((100vw - 1160px) / 2));
+  border-bottom: 1px solid #dce3d8;
+  background: #fff;
+}
+.brand {
+  font:
+    800 24px Manrope,
+    system-ui;
+  color: #19362b;
+  text-decoration: none;
+}
+.brand span {
+  display: block;
+  font:
+    400 12px "DM Sans",
+    sans-serif;
+  color: #607266;
+  margin-top: 4px;
+}
+main {
+  max-width: 1160px;
+  margin: auto;
+  padding: 32px 24px;
+}
+.intro {
+  padding: 16px 0 24px;
+  max-width: 650px;
+}
+h1 {
+  font:
+    800 clamp(32px, 5vw, 54px) / 1.15 Manrope,
+    system-ui;
+  letter-spacing: -2px;
+  margin: 12px 0 18px;
+}
+h2 {
+  font:
+    700 21px Manrope,
+    system-ui;
+  margin: 0 0 18px;
+}
+p {
+  line-height: 1.6;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #657966;
+}
+.demo-note {
+  background: #edf1db;
+  border: 1px solid #d8e0be;
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+.demo-note p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 24px;
+}
+.panel {
+  background: #fff;
+  border: 1px solid #dde4d9;
+  border-radius: 18px;
+  padding: 26px;
+  margin: 0 0 24px;
+  box-shadow: 0 5px 15px #19362b04;
+}
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+input {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 12px;
+  border: 1px solid #bdcabc;
+  border-radius: 9px;
+  margin-top: 6px;
+  background: #fff;
+  color: inherit;
+}
+button {
+  font:
+    600 13px "DM Sans",
+    system-ui;
+  padding: 12px 17px;
+  border: 1px solid #254a37;
+  border-radius: 9px;
+  background: #254a37;
+  color: white;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+button.quiet {
+  background: white;
+  color: #254a37;
+  border-color: #cbd6c9;
+}
+.inline {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+.inline input {
+  margin-top: 0;
+}
+.inline label {
+  flex: 1;
+}
+.inline button {
+  margin-bottom: 14px;
+}
+.search .inline button {
+  margin-bottom: 0;
+}
+.muted,
+small {
+  color: #657568;
+  font-size: 13px;
+}
+.feedback {
+  min-height: 20px;
+}
+.error {
+  color: #8c2929;
+  background: #fff1ed;
+  padding: 12px;
+  border-radius: 8px;
+}
+.products,
+.entries {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.products li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid #e6ebe2;
+}
+.products p {
+  margin: 5px 0;
+}
+.verdict {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  background: #edf2db;
+  color: #36532b;
+}
+.verdict.haram {
+  background: #fce8e3;
+  color: #923b2b;
+}
+.verdict.mashbooh {
+  background: #fff0d0;
+  color: #745615;
+}
+.entry {
+  border-top: 1px solid #e6ebe2;
+  padding: 16px 0;
+}
+.entry form {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+.entry label {
+  max-width: 190px;
+  font-size: 11px;
+}
+.entry form button {
+  margin-bottom: 14px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+footer {
+  color: #6c796d;
+  font-size: 12px;
+  padding: 16px 0 24px;
+}
+a {
+  color: #365d37;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #a4bd7e;
+  outline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    padding: 20px;
+  }
+  .intro {
+    padding-top: 0;
+  }
+  header > .eyebrow {
+    display: none;
+  }
+  .products li {
+    align-items: start;
+    flex-direction: column;
+  }
+  .inline {
+    flex-wrap: wrap;
+  }
+  .entry form {
+    align-items: center;
+  }
+  .entry form button {
+    margin-top: 14px;
+  }
+  main {
+    padding: 24px 16px;
+  }
+  h1 {
+    letter-spacing: -1px;
+  }
+}

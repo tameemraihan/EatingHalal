@@ -1,3 +1,4 @@
+# Product examples and verdicts below are synthetic test fixtures, not real certifications.
 @uc04
 Feature: Manage stored halal assessment results
   As an authorised admin

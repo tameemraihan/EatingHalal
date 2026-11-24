@@ -1,46 +1,30 @@
-@startuml UseCase1_Search_Product_Activity
-
+@startuml
+!pragma layout smetana
 title Search for a Product
-
-skinparam shadowing false
-skinparam activity {
-  BackgroundColor White
-  BorderColor #555555
-  ArrowColor #333333
-}
-
 |User|
 start
 :Enter product name;
-
 |System|
-:Search hosted product database;
-
-|External Product Data Sources|
-:Search available product data sources;
-
-|System|
-:Combine and retrieve matching products;
-
-if (Matching product found?) then (yes)
-  :Present matching products;
-
-  |User|
-  |System|
-  stop
+:Search hosted PostgreSQL records;
+if (Local match?) then (yes)
+  :Retrieve local matches;
 else (no)
-  :Inform user that no matching
-  product was found;
-  :Offer product-photo upload;
-
-  |User|
-  if (Upload a product photo?) then (yes)
-    :Start Upload Product
-    Packaging Photo (use case 03);
-  else (no)
-    :Refine product name or end search;
-  endif
-  stop
+  :Query enabled external source
+with cache, throttle and timeout;
+  :Persist usable external results
+with provenance;
 endif
-
+if (Any match?) then (yes)
+  :Display product name and
+available brand/packaging;
+else (no)
+  :Report no match / source availability;
+  :Offer packaging-photo panel;
+  |User|
+  :Refine search or open photo panel;
+  note right
+    Panel exists; OCR is not implemented.
+  end note
+endif
+stop
 @enduml

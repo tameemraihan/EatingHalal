@@ -1,0 +1,34 @@
+@startuml
+!pragma layout smetana
+skinparam shadowing false
+title EatingHalal — verified local demo deployment
+node "Development computer" <<device>> {
+  node "Chrome / modern web browser" <<executionEnvironment>> as Browser {
+    artifact "React client assets" as Client
+  }
+  node "Java runtime" <<executionEnvironment>> as Java {
+    node "Embedded Tomcat :8080" <<executionEnvironment>> as Tomcat {
+      artifact "EatingHalal Spring Boot application" as Backend
+      artifact "Built React assets /static" as Static
+    }
+  }
+  node "PostgreSQL server\nlocal demo: random loopback port" <<executionEnvironment>> as PG {
+    database "Persistent demo database" as Database
+  }
+}
+node "Open Food Facts service" <<external>> as OFF
+Browser -- Tomcat : HTTP loopback :8080\nHTML / JS / CSS / JSON
+Java -- PG : JDBC on loopback
+Java -- OFF : HTTPS :443\nonly if explicitly enabled
+Static ..> Client : delivered to browser
+Backend ..> Database : schema applied by Flyway
+note bottom of PG
+Docker Compose alternative: PostgreSQL 16 on :5432.
+Verified native demo/tests: PostgreSQL 14.15.
+Both use real PostgreSQL, not an in-memory replacement.
+end note
+note bottom of Browser
+Local only: no publicly reachable deployment.
+No CI/CD pipeline was executed.
+end note
+@enduml

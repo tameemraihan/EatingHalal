@@ -21,6 +21,8 @@
 6. [Extension Points](#6-extension-points)
    - [6.1 Structured Product Data Prepared](#61-structured-product-data-prepared)
 
+> Implementation status: Not implemented: OCR, image decoding/validation, confidence evaluation and canonical extraction. The UI/endpoint only report availability; all four OCR flow scenarios are pending. See [Submission Status](../SubmissionStatus.md).
+
 ## 1. Brief Description
 
 A **User** uploads a photo of a packaged food product when a suitable product cannot be found through search, or when the user chooses to identify a product from its packaging. The system validates the image, uses Optical Character Recognition (OCR) to extract text, and uses an OCR/Large Language Model (LLM) service to structure the available product information. The resulting data is prepared in the canonical format required by the halal assessment pipeline.
