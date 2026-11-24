@@ -21,7 +21,7 @@
 6. [Extension Points](#6-extension-points)
    - [6.1 Structured Product Data Prepared](#61-structured-product-data-prepared)
 
-> Implementation status: Not implemented: OCR, image decoding/validation, confidence evaluation and canonical extraction. The UI/endpoint only report availability; all four OCR flow scenarios are pending. See [Submission Status](../SubmissionStatus.md).
+> Implementation status: Not implemented: OCR, image decoding/validation, confidence evaluation and canonical extraction. The UI/endpoint only report availability; all four OCR flow scenarios are pending. See [the project README](../../README.md#implementation-status).
 
 ## 1. Brief Description
 

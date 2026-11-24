@@ -10,9 +10,9 @@ We use Java 17, Spring Boot and Spring MVC for the backend, with React for prese
 
 The following diagram shows how these responsibilities fit together.
 
-![EatingHalal architecture](https://raw.githubusercontent.com/tameemraihan/EatingHalal/EH-60/docs/assets/images/SAD-Architecture.png)
+![EatingHalal architecture](https://raw.githubusercontent.com/tameemraihan/EatingHalal/016ee0f749ee99d8399b53123363d74e34fd6ab2/docs/assets/images/architecture/SAD-Architecture.png)
 
-Spring supplies application configuration, request mapping, repository implementations and security infrastructure. It does not generate a complete user interface or decide domain rules. Our [Software Architecture Document](https://github.com/tameemraihan/EatingHalal/blob/EH-60/docs/SoftwareArchitectureDocument.md) distinguishes the framework's contribution from the controller, service and React code implemented for EatingHalal.
+Spring supplies application configuration, request mapping, repository implementations and security infrastructure. It does not generate a complete user interface or decide domain rules. Our [Software Architecture Document](https://github.com/tameemraihan/EatingHalal/blob/016ee0f749ee99d8399b53123363d74e34fd6ab2/docs/architecture/SoftwareArchitectureDocument.md) distinguishes the framework's contribution from the controller, service and React code implemented for EatingHalal.
 
 ## A Complete CRUD Slice
 
@@ -20,7 +20,7 @@ The personal shopping list demonstrates Create, Read, Update and Delete. A signe
 
 This screenshot shows the local demonstration using synthetic product evidence.
 
-![Local CRUD demonstration](https://raw.githubusercontent.com/tameemraihan/EatingHalal/EH-60/docs/assets/images/local-crud-demo.png)
+![Local CRUD demonstration](https://raw.githubusercontent.com/tameemraihan/EatingHalal/016ee0f749ee99d8399b53123363d74e34fd6ab2/docs/submissions/week-08/evidence/images/local-crud-demo.png)
 
 The demo verdicts are classroom fixtures, not real dietary assessments. We implemented optional [Open Food Facts](https://openfoodfacts.github.io/openfoodfacts-server/api/) lookup when no stored product matches. The adapter records provenance, identifies the application, applies timeouts and limits repeated searches. Imported ingredient or certification labels remain evidence; they do not automatically become a confirmed EatingHalal verdict.
 
@@ -28,7 +28,7 @@ The demo verdicts are classroom fixtures, not real dietary assessments. We imple
 
 An issue in the earlier setup was that step definitions changed booleans and maps inside the tests. Passing those scenarios showed that Cucumber infrastructure worked, but did not demonstrate functioning API routes or persistence. The implemented scenarios now call HTTP endpoints through RestAssured and verify records in a real, isolated PostgreSQL instance.
 
-The suite executes twenty implemented scenarios, with six unavailable flows explicitly pending. Browser checks cover the integrated React workflow and a mobile viewport. A separate restart check verifies that the same shopping-list entry and quantity survive a complete application and database restart. The [submission status](https://github.com/tameemraihan/EatingHalal/blob/EH-60/docs/SubmissionStatus.md) links recordings and reports and names the exclusions.
+The suite executes twenty implemented scenarios, with six unavailable flows explicitly pending. Browser checks cover the integrated React workflow and a mobile viewport. A separate restart check verifies that the same shopping-list entry and quantity survive a complete application and database restart. The [submission status](https://github.com/tameemraihan/EatingHalal/blob/016ee0f749ee99d8399b53123363d74e34fd6ab2/docs/submissions/week-08/README.md) links recordings and reports and names the exclusions.
 
 ## Keeping the Architecture Document Current
 

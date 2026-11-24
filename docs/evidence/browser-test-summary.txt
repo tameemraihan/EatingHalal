@@ -1,3 +1,0 @@
-PASS: 2 browser tests, installed Chrome.
-Search, stored assessment, Create/Read/Update/Delete, separate user lists, admin review, missing-product photo navigation and 390px mobile layout.
-See frontend/tests/demo.spec.js and the recordings/screenshots.

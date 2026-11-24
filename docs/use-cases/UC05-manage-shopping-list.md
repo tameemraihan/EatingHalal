@@ -24,7 +24,7 @@
 6. [Extension Points](#6-extension-points)
    - [6.1 Product Selected from Shopping List](#61-product-selected-from-shopping-list)
 
-> Implementation status: Implemented: authenticated Create, Read, quantity Update, Delete and Clear with PostgreSQL persistence and server-side ownership checks. See [Submission Status](../SubmissionStatus.md).
+> Implementation status: Implemented: authenticated Create, Read, quantity Update, Delete and Clear with PostgreSQL persistence and server-side ownership checks. See [the project README](../../README.md#implementation-status).
 
 ## 1. Brief Description
 

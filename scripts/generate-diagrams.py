@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 
 root = Path(__file__).resolve().parents[1]
-output = root / 'docs/assets/plantuml-code'
+output = root / 'docs/assets/plantuml-code/architecture'
 output.mkdir(parents=True, exist_ok=True)
 sources = list((root / 'backend/src/main/java/com/eatinghalal').rglob('*.java'))
 classes = {}

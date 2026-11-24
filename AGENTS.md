@@ -16,8 +16,9 @@ This file tells AI agents how to work in this repository. When the user names a 
 - `docs/assets/plantuml-code/` — PlantUML diagram sources
 - `backend/` — Java Spring Boot backend
 - `frontend/` — React UI and browser verification
-- `docs/SoftwareArchitectureDocument.md` — architecture and implementation limits
-- `docs/SubmissionStatus.md` — deliverables, evidence and remaining gaps
+- `docs/architecture/SoftwareArchitectureDocument.md` — architecture and implementation limits
+- `docs/setup/` — installation and local setup guides
+- `docs/submissions/week-XX/` — material specific to each weekly submission
 - `backend/src/test/resources/features/` — Cucumber feature files
 
 **Technology stack:**
@@ -31,6 +32,10 @@ This file tells AI agents how to work in this repository. When the user names a 
 **Version control:** Git is the sole version tracker. No manual version numbers, dates, or revision history tables belong in any document.
 
 ---
+
+## Review Before Publishing Changes
+
+For implementation and cleanup tasks, keep changes local and present a summary of the scope, changed files, validation and outstanding work before committing, pushing or creating/updating a PR. Give the user an opportunity to review and reject the changes. A broad request to complete deliverables does not authorize publishing them. Proceed with commit/push/PR actions when the user explicitly requests them for the reviewed changes.
 
 ## Task: Write Use Case Documentation
 

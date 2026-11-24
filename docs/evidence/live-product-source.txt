@@ -1,3 +1,0 @@
-PASS: optional live Open Food Facts adapter returned and persisted 10 products.
-Query: Nutella. Returned records retained Open Food Facts provenance and no halal verdict was generated.
-Data from Open Food Facts; imported labels are not verified halal verdicts.

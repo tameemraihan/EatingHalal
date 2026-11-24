@@ -18,7 +18,7 @@
 - [6. Extension Points](#6-extension-points)
   - [6.1 Product Search Completed](#61-product-search-completed)
 
-> Implementation status: Implemented: local-first search and optional external fallback. Packaging-panel navigation exists; its Cucumber scenario remains pending and browser-tested separately. See [Submission Status](../SubmissionStatus.md).
+> Implementation status: Implemented: local-first search and optional external fallback. Packaging-panel navigation exists; its Cucumber scenario remains pending and browser-tested separately. See [the project README](../../README.md#implementation-status).
 
 ## 1. Brief Description
 

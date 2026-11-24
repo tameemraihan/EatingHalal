@@ -13,16 +13,16 @@ A web application that helps users determine whether packaged food products comp
 | [`backend/`](backend/) | Java Spring Boot backend |
 | [`backend/src/test/resources/features/`](backend/src/test/resources/features/) | Cucumber feature files |
 
-## This Week's Submission
+## Project Documentation
 
-- [Submission status and remaining gaps](docs/SubmissionStatus.md)
-- [Software Architecture Document](docs/SoftwareArchitectureDocument.md)
-- [Local setup and demo walkthrough](docs/LocalDemoGuide.md)
-- [Framework blog draft](docs/blog/08-software-architecture.md)
-- [Data stewardship / CRC evidence](docs/DataStewardship.md)
-- [Human contribution](docs/HumanContribution.md)
+- [Software Architecture Document](docs/architecture/SoftwareArchitectureDocument.md)
+- [Data responsibilities](docs/architecture/DataStewardship.md)
+- [Setup and running the local demo](docs/setup/local-demo.md)
+- [Weekly submissions](docs/submissions/README.md)
 
-The local application implements stored product/assessment viewing, personal CRUD and admin review. OCR and new verdict generation remain unimplemented; public hosting and blog publication are outstanding. Synthetic demo verdicts are labelled and are not real dietary assessments.
+## Implementation Status
+
+The local application implements stored product/assessment viewing, optional product-data lookup, personal shopping-list CRUD and admin review. OCR and automatic new verdict generation remain unimplemented. Demo results are synthetic and clearly labelled. Public hosting and CI/CD are not configured.
 
 ## Technology Stack
 
@@ -39,7 +39,7 @@ The local application implements stored product/assessment viewing, personal CRU
 sh scripts/run-local-demo.sh
 ~~~
 
-Open http://127.0.0.1:8080. See the [guide](docs/LocalDemoGuide.md) for prerequisites, isolated tests, PostgreSQL persistence, local accounts and provider settings.
+Open http://127.0.0.1:8080. See the [guide](docs/setup/local-demo.md) for prerequisites, isolated tests, PostgreSQL persistence, local accounts and provider settings.
 
 ## Links
 
