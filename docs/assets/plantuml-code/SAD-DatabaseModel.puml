@@ -1,0 +1,48 @@
+@startuml
+!pragma layout smetana
+skinparam shadowing false
+title EatingHalal — PostgreSQL schema from Flyway migration
+entity user_account {
+  * id: UUID <<PK>>
+  * username: VARCHAR(100)
+  * password_hash: VARCHAR(100)
+  * role: VARCHAR(20)
+}
+entity product {
+  * id: UUID <<PK>>
+  barcode: VARCHAR(64)
+  * name: VARCHAR(300)
+  * brand: VARCHAR(300)
+  * package_description: VARCHAR(300)
+  * ingredients: TEXT
+  * labels: TEXT
+  * source: VARCHAR(80)
+  * source_url: TEXT
+  * retrieved_at: TIMESTAMP WITH TIME ZONE
+}
+entity halal_assessment {
+  * id: UUID <<PK>>
+  * product_id: UUID <<FK>>
+  * version: INTEGER
+  * verdict: VARCHAR(20)
+  * justification: TEXT
+  * input_snapshot: TEXT
+  * evaluator_version: VARCHAR(100)
+  * assessed_at: TIMESTAMP WITH TIME ZONE
+}
+entity shopping_list_entry {
+  * id: UUID <<PK>>
+  * owner_id: UUID <<FK>>
+  * product_id: UUID <<FK>>
+  * quantity: INTEGER
+  * added_at: TIMESTAMP WITH TIME ZONE
+}
+product ||--o{ halal_assessment : product_id
+user_account ||--o{ shopping_list_entry : owner_id
+product ||--o{ shopping_list_entry : product_id
+note bottom
+Unique: username; barcode; (product_id, version); (owner_id, product_id).
+Quantity: 1..999. No cascading delete of shared products or assessments.
+The migration is applied and JPA validates the database schema.
+end note
+@enduml

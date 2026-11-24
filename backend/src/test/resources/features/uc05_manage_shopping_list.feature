@@ -1,3 +1,4 @@
+# Product examples and verdicts below are synthetic test fixtures, not real certifications.
 @uc05
 Feature: Manage shopping list
   As a user
@@ -49,3 +50,29 @@ Feature: Manage shopping list
     Then the system removes all products from the user's shopping list
     And the system confirms that the shopping list has been cleared
     And the system informs the user that the shopping list is empty
+
+
+  Scenario: Update a saved quantity
+    Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal"
+    When the user changes the saved quantity to 3
+    Then the persisted quantity is 3
+
+  Scenario: Reject an invalid quantity
+    Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal"
+    When the user changes the saved quantity to 0
+    Then the quantity change is rejected
+
+  Scenario: A second user cannot update another user's list
+    Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal"
+    When another signed-in user requests the first user's shopping-list entry
+    Then the entry is inaccessible and remains unchanged
+
+  Scenario: Do not save a product with a Haram assessment
+    Given the selected product has only a Haram assessment
+    When the user tries to save the selected product
+    Then the ineligible product is not saved
+
+  Scenario: Reject a mutation without a CSRF token
+    Given the user's shopping list contains "Synthetic Oat Drink" with status "Halal"
+    When the user submits a quantity change without a CSRF token
+    Then the CSRF check rejects the change

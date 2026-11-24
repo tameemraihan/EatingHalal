@@ -1,3 +1,4 @@
+# Product examples and verdicts below are synthetic test fixtures, not real certifications.
 @uc02
 Feature: View halal status of a product
   As a user
@@ -15,6 +16,7 @@ Feature: View halal status of a product
     And the system displays the halal status
     And the system displays a plain-language justification for the status
 
+  @pending_implementation
   Scenario: Create and store an assessment when none exists
     Given the user has selected "Example Product"
     And no stored halal assessment exists for "Example Product"

@@ -11,17 +11,21 @@ This file tells AI agents how to work in this repository. When the user names a 
 **Repository structure:**
 - `README.md` — front door: project description, repo map, tech stack, links
 - `docs/SoftwareRequirementsSpecification.md` — full SRS
-- `docs/use-cases/` — use case specifications (UC01–UC04 documented, UC05–UC08 pending)
+- `docs/use-cases/` — use case specifications (UC01–UC05 documented, UC06–UC08 later phase)
 - `docs/assets/images/` — rendered PNG diagrams
 - `docs/assets/plantuml-code/` — PlantUML diagram sources
 - `backend/` — Java Spring Boot backend
+- `frontend/` — React UI and browser verification
+- `docs/SoftwareArchitectureDocument.md` — architecture and implementation limits
+- `docs/SubmissionStatus.md` — deliverables, evidence and remaining gaps
 - `backend/src/test/resources/features/` — Cucumber feature files
 
 **Technology stack:**
-- Backend: Java 17, Spring Boot, MariaDB
-- Frontend: ReactJS
+- Backend: Java 17, Spring Boot, PostgreSQL
+- Frontend: ReactJS (frontend/)
 - Testing: Cucumber, JUnit, RestAssured
-- CI/CD: Travis CI, Docker
+- Local database: Docker Compose or native PostgreSQL helper
+- CI/CD: Travis CI planned; no pipeline implemented
 - Project management: YouTrack
 
 **Version control:** Git is the sole version tracker. No manual version numbers, dates, or revision history tables belong in any document.
@@ -169,7 +173,7 @@ Triggered by: "execute task: Backend Development"
 
 - Java 17, Spring Boot 3.x, Maven
 - RESTful API, JSON responses
-- MariaDB for persistence
+- PostgreSQL for persistence
 - Follow clean code standards: clear naming by function, no abbreviations in identifiers
 
 ### Testing conventions

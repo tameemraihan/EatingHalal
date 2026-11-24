@@ -11,20 +11,24 @@
      - [2.2.3 Clear Shopping List](#223-clear-shopping-list)
      - [2.2.4 Shopping List Is Empty](#224-shopping-list-is-empty)
      - [2.2.5 Product Already on Shopping List](#225-product-already-on-shopping-list)
+     - [2.2.6 Change Quantity](#226-change-quantity)
    - [Activity Diagram](#activity-diagram)
 3. [Special Requirements](#3-special-requirements)
    - [3.1 List Contents](#31-list-contents)
    - [3.2 Persistence](#32-persistence)
    - [3.3 Usability](#33-usability)
    - [3.4 Interfaces and Availability](#34-interfaces-and-availability)
+   - [3.5 Quantity and Ownership](#35-quantity-and-ownership)
 4. [Preconditions](#4-preconditions)
 5. [Postconditions](#5-postconditions)
 6. [Extension Points](#6-extension-points)
    - [6.1 Product Selected from Shopping List](#61-product-selected-from-shopping-list)
 
+> Implementation status: Implemented: authenticated Create, Read, quantity Update, Delete and Clear with PostgreSQL persistence and server-side ownership checks. See [Submission Status](../SubmissionStatus.md).
+
 ## 1. Brief Description
 
-A **User** manages a personal shopping list of halal-approved products. The user can view saved products, add a product from its halal assessment result, remove individual products, or clear the entire list. The shopping list helps users retain products they intend to purchase or revisit during shopping.
+A **User** manages a personal shopping list of halal-approved products. The user can view saved products, add a product from its halal assessment result, change saved quantities, remove individual products, or clear the entire list. The shopping list helps users retain products they intend to purchase or revisit during shopping.
 
 **Primary actor:** User<br>
 **Supporting actors:** None<br>
@@ -36,7 +40,7 @@ A **User** manages a personal shopping list of halal-approved products. The user
 
 1. The user opens the shopping list.
 2. The system retrieves the user's saved products from the database.
-3. The system displays the shopping list with each saved product's name and halal status.
+3. The system displays the shopping list with each saved product's name, quantity, and current halal status.
 4. The use case ends.
 
 ### 2.2 Alternative Flows
@@ -47,7 +51,7 @@ After the system displays the halal assessment result in [View Halal Status of a
 
 1. The user selects the option to add the product to the shopping list.
 2. The system checks whether the product is already on the shopping list.
-3. The system saves the product to the user's shopping list.
+3. The system verifies a current stored Halal assessment and saves the product with initial quantity 1 to the authenticated user's shopping list.
 4. The system confirms to the user that the product has been added.
 5. The flow returns to [UC02](UC02-view-halal-status.md).
 
@@ -85,6 +89,16 @@ At [step 2 of alternative flow 2.2.1](#221-add-product-to-shopping-list), the pr
 2. The system does not add a duplicate entry.
 3. The flow returns to [UC02](UC02-view-halal-status.md).
 
+#### 2.2.6 Change Quantity
+
+After [step 3 of the basic flow](#21-basic-flow), the user edits a saved quantity.
+
+1. The user enters a quantity from 1 to 999 and selects Save quantity.
+2. The system verifies that the saved entry belongs to the authenticated user.
+3. The system validates and persists the quantity, retaining the product and added time.
+4. The system confirms the change and displays the updated list.
+5. If the quantity is invalid, no stored value changes and an explanatory error is displayed. An entry outside the user's ownership scope cannot be modified.
+
 ### Activity Diagram
 
 ![Activity Diagram](../assets/images/UC05-manage-shopping-list.png)
@@ -95,7 +109,7 @@ At [step 2 of alternative flow 2.2.1](#221-add-product-to-shopping-list), the pr
 
 ### 3.1 List Contents
 
-The shopping list shall display each saved product's name and halal status. Products are displayed in the order they were added.
+The shopping list shall display each saved product's name, quantity, and current halal status. Products are displayed in the order they were added.
 
 ### 3.2 Persistence
 
@@ -109,9 +123,13 @@ The shopping list screen shall be understandable without prior training. Add, re
 
 The web application communicates with its backend over HTTP and HTTPS. If the shopping list database is unavailable, the system shall inform the user and not present stale or incomplete list data.
 
+### 3.5 Quantity and Ownership
+
+Every saved quantity shall be between 1 and 999. All list reads and changes shall use the authenticated user identity established by the backend, not an owner ID supplied by the client. Only products with a current stored Halal assessment may be added. Existing entries shall show their current status if later assessment evidence changes it. Invalid or unauthorized changes shall leave stored data unchanged.
+
 ## 4. Preconditions
 
-1. The EatingHalal web application is available to the user.
+1. The EatingHalal web application is available and the user is authenticated.
 2. The user's shopping list database is available.
 
 ## 5. Postconditions

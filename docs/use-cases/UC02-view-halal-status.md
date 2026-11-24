@@ -20,6 +20,8 @@
 6. [Extension Points](#6-extension-points)
    - [6.1 Assessment Result Displayed](#61-assessment-result-displayed)
 
+> Implementation status: Implemented: stored result viewing and unavailable response. Automatic new verdict generation is not implemented. See [Submission Status](../SubmissionStatus.md).
+
 ## 1. Brief Description
 
 A **User** views the halal status of a selected packaged food product. The system first checks whether a stored assessment is available. When no stored assessment exists, the system obtains the required product data, normalises it into the canonical format required by the halal assessment pipeline, runs the assessment, and stores the result. The system then displays the product details, halal status, and a justification.

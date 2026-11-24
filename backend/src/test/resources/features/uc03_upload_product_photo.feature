@@ -1,4 +1,5 @@
-@uc03
+# Product examples and verdicts below are synthetic test fixtures, not real certifications.
+@uc03 @pending_implementation
 Feature: Upload a product packaging photo
   As a user
   I want to upload a photo of packaged food

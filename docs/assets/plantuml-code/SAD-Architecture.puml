@@ -1,0 +1,44 @@
+@startuml
+!pragma layout smetana
+skinparam shadowing false
+title EatingHalal — framework and responsibility boundaries
+package "View / presentation" #EDF2DB {
+  [React App and Entry components] as View
+}
+package "Spring MVC / controller layer" #E7EFF8 {
+  [Spring Security session and CSRF filters] as Security
+  [DispatcherServlet] as Dispatcher
+  [REST controllers] as Controllers
+}
+package "Model / application layer" #EDF2DB {
+  [ProductLookupService] as Lookup
+  [AssessmentService — stored results only] as Assessment
+  [ShoppingListService] as List
+  [JPA domain entities] as Entities
+  [Spring Data repositories] as Repositories
+  [OpenFoodFactsClient — optional] as External
+}
+database PostgreSQL
+cloud "Open Food Facts" as OFF
+View --> Security : HTTP / JSON / multipart
+Security --> Dispatcher
+Dispatcher --> Controllers
+Controllers --> Lookup
+Controllers --> Assessment
+Controllers --> List
+Lookup --> External
+Lookup --> Repositories
+Assessment --> Repositories
+List --> Repositories
+Repositories --> Entities
+Repositories --> PostgreSQL : JDBC
+External --> OFF : HTTPS
+note bottom of Assessment
+No automatic halal verdict generation.
+Synthetic seeded results are clearly labelled.
+end note
+note bottom of Controllers
+PhotoController returns unavailable;
+OCR is not implemented.
+end note
+@enduml

@@ -1,0 +1,147 @@
+@startuml
+!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+title EatingHalal — classes extracted from production source
+package "View — React presentation" #EDF2DB {
+  class "App (React component)" as ReactApp <<component>>
+  class "Entry (React component)" as ReactEntry <<component>>
+}
+ReactApp --> ReactEntry : renders
+package "Controller — REST request handling" #E7EFF8 {
+  class ProductController {
+    - lookup: ProductLookupService
+    - assessments: AssessmentService
+    + search()
+    + assessment()
+  }
+  class PhotoController {
+    + upload()
+  }
+  class AdminAssessmentController {
+    - assessments: AssessmentService
+    + search()
+    + detail()
+  }
+  class ShoppingListController {
+    - shoppingList: ShoppingListService
+    + list()
+    + add()
+    + update()
+    + remove()
+    + clear()
+  }
+  class SessionController {
+    - demo: boolean
+    + session()
+  }
+}
+package "Model — application services" #EDF2DB {
+  class ProductLookupService {
+    - products: ProductRepository
+    - external: ProductDataClient
+    + search()
+  }
+  class AssessmentService {
+    - assessments: AssessmentRepository
+    - products: ProductRepository
+    + current()
+    + search()
+    + detail()
+  }
+  class ShoppingListService {
+    - entries: ShoppingListEntryRepository
+    - users: UserAccountRepository
+    - products: ProductRepository
+    - assessments: AssessmentRepository
+    + list()
+    + add()
+    + update()
+    + remove()
+    + clear()
+  }
+}
+package "Model — domain / persistent entities" #EDF2DB {
+  class Product {
+    + id: UUID
+    + barcode: String
+    + name: String
+    + brand: String
+    + packageDescription: String
+    + ingredients: String
+    + labels: String
+    + source: String
+    + sourceUrl: String
+    + retrievedAt: Instant
+  }
+  class HalalAssessment {
+    + id: UUID
+    + product: Product
+    + version: int
+    + verdict: String
+    + justification: String
+    + inputSnapshot: String
+    + evaluatorVersion: String
+    + assessedAt: Instant
+  }
+  class UserAccount {
+    + id: UUID
+    + username: String
+    + passwordHash: String
+    + role: String
+  }
+  class ShoppingListEntry {
+    + id: UUID
+    + owner: UserAccount
+    + product: Product
+    + quantity: int
+    + addedAt: Instant
+  }
+}
+package "Model — framework-generated repositories" #EDF2DB {
+  interface UserAccountRepository {
+  }
+  interface AssessmentRepository {
+  }
+  interface ProductRepository {
+  }
+  interface ShoppingListEntryRepository {
+  }
+}
+package "Model — product-source integration" #EDF2DB {
+  class OpenFoodFactsClient {
+    - client: RestClient
+    - enabled: boolean
+    - baseUrl: String
+    + search()
+  }
+  interface ProductDataClient {
+  }
+}
+ProductController ..> ProductLookupService : uses
+ProductController ..> AssessmentService : uses
+AdminAssessmentController ..> AssessmentService : uses
+ShoppingListController ..> ShoppingListService : uses
+OpenFoodFactsClient ..|> ProductDataClient
+Product "1" -- "0..*" HalalAssessment
+UserAccount "1" -- "0..*" ShoppingListEntry
+Product "1" -- "0..*" ShoppingListEntry
+ProductLookupService ..> ProductRepository : uses
+ProductLookupService ..> ProductDataClient : uses
+AssessmentService ..> AssessmentRepository : uses
+AssessmentService ..> ProductRepository : uses
+ShoppingListService ..> ShoppingListEntryRepository : uses
+ShoppingListService ..> UserAccountRepository : uses
+ShoppingListService ..> ProductRepository : uses
+ShoppingListService ..> AssessmentRepository : uses
+ReactApp ..> ProductController : HTTP
+ReactApp ..> ShoppingListController : HTTP
+ReactApp ..> AdminAssessmentController : HTTP
+ReactApp ..> SessionController : HTTP
+ReactApp ..> PhotoController : HTTP
+note bottom
+Classes, fields and dependency types are extracted from Java source.
+React component names are extracted from the frontend design.
+Method parameter detail and framework classes are omitted for readability.
+end note
+@enduml

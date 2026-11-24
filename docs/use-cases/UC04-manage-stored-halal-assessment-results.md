@@ -19,6 +19,8 @@
 6. [Extension Points](#6-extension-points)
    - [6.1 Stored Assessment Displayed](#61-stored-assessment-displayed)
 
+> Implementation status: Implemented: admin-only search, listing and detail review; read-only as specified. See [Submission Status](../SubmissionStatus.md).
+
 ## 1. Brief Description
 
 An **Admin** manages previously stored halal assessment results. The Admin opens the stored assessments, applies search criteria and filters, reviews the matching results, and selects one assessment to view its product details, halal status, and justification. If no assessment matches the search criteria, the system informs the Admin. The Admin may refine the search and repeat the query.
@@ -73,7 +75,7 @@ After [step 7 of the basic flow](#basic-flow-step-7), the Admin does not select 
 
 ![Activity Diagram](../assets/images/UC04-manage-stored-halal-assessment-results.png)
 
-[PlantUML source](../assets/plantuml-code/UC04-manage-stored-halal-assessment-results.puml) | [Cucumber feature](../../backend/src/test/resources/features/uc04_manage_stored_assessments.feature)
+[PlantUML source](../assets/plantuml-code/UC04-manage-stored-halal-assessment-results.puml) | [Cucumber feature](../../backend/src/test/resources/features/uc04_manage_stored_halal_assessment_results.feature)
 
 ## 3. Special Requirements
 
