@@ -15,7 +15,7 @@ A web application that helps users determine whether packaged food products comp
 
 ## Technology Stack
 
-- **Backend:** Java 17, Spring Boot, MariaDB
+- **Backend:** Java 17, Spring Boot, PostgreSQL
 - **Frontend:** ReactJS
 - **Testing:** Cucumber, JUnit, RestAssured
 - **CI/CD:** Travis CI, Docker
