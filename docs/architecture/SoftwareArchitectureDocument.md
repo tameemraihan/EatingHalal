@@ -26,6 +26,10 @@ The application is a layered client/server modular monolith. The browser runs Re
 
 MVC labels identify responsibilities: React is the **View/presentation**; the REST classes are **Controllers**; domain entities, services, repositories and source integrations comprise the **Model/application layer**. React is not described as an MVC framework. Since controllers return JSON, Spring does not render the product UI through server-side templates.
 
+![Application architecture](../assets/images/architecture/SAD-Architecture.png)
+
+[PlantUML source](../assets/plantuml-code/architecture/SAD-Architecture.puml)
+
 ## 3. Architectural Goals and Constraints
 
 - Java 17 language target, Spring Boot 3.2.4, Maven, React and PostgreSQL. PostgreSQL was explicitly selected by the project owner.
@@ -61,11 +65,6 @@ The Spring reference explains DispatcherServlet as the front controller and dist
 
 ![Spring MVC framework context hierarchy](../assets/images/architecture/Spring-MVC-Context-Hierarchy.png)
 
-EatingHalal maps those responsibilities to the following components:
-
-![Application architecture](../assets/images/architecture/SAD-Architecture.png)
-
-[PlantUML source](../assets/plantuml-code/architecture/SAD-Architecture.puml)
 
 ### 5.2 Code-derived class diagram with MVC regions
 
